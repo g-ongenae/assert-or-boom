@@ -1,0 +1,70 @@
+{
+  "name": "assert-or-boom",
+  "version": "0.1.0",
+  "description": "Assert or throw a Boom Error",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "tslint ./{src,test}/*.ts ./{src,test}/**/*.ts --project tsconfig.json",
+    "posttest": "npm audit --only=prod",
+    "precommit": "lint-staged",
+    "prepublish": "npm run build && rm -fr dist/tests",
+    "pretest": "npm run lint && npm run build",
+    "prettier": "prettier --write \"{src,test}/**/*.ts\" \"{doc/,}*.md\" \"*.json\"",
+    "test": "ava dist/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/g-ongenae/assert-or-boom.git"
+  },
+  "keywords": [
+    "assert",
+    "boom",
+    "error",
+    "http-status"
+  ],
+  "author": "Guillaume Ongenae <guillaume.ongenae@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/g-ongenae/assert-or-boom/issues"
+  },
+  "homepage": "https://github.com/g-ongenae/assert-or-boom#readme",
+  "devDependencies": {
+    "@types/boom": "7.2.0",
+    "@types/node": "10.10.3",
+    "ava": "1.0.0-beta.8",
+    "husky": "0.14.3",
+    "lint-staged": "7.3.0",
+    "prettier": "1.14.3",
+    "tslint": "5.11.0",
+    "tslint-config-prettier": "1.15.0",
+    "typescript": "3.0.3"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --list-different \"{src,test}/**/*.ts\""
+    ],
+    "{doc/,}*.md": [
+      "prettier --list-different \"doc/*.md\""
+    ],
+    "*.json": [
+      "prettier --list-different \"*.json\""
+    ]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": false,
+    "printWidth": 120,
+    "proseWrap": "never",
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "boom": "7.2.0",
+    "magic-http-status": "1.0.1"
+  }
+}
