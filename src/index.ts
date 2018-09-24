@@ -1,12 +1,73 @@
 import * as boom from 'boom';
 import {CODES} from 'magic-http-status';
 
-export default function aOrB(value: any, statusCode?: number, message?: string, payload?: object): void {
-  if (!value) {
-    const code: number | undefined = statusCode || (!!message ? CODES.BAD_REQUEST : undefined);
-    const errMessage: string = !!message ? message : 'Value is not truthy';
-    throw new boom(errMessage, {statusCode: code, data: payload});
+interface Bam extends Error {
+  data?: object;
+}
+
+export class AssertOrBoom {
+  shouldThrow: boolean = false;
+
+  /*
+   * Validation 
+   */
+
+  /**
+   * isString
+   */
+  public isString(value: any): this {
+    this.shouldThrow = typeof value !== 'string';
+
+    return this;
   }
 
-  return;
+  /*
+   * Thrower
+   */
+
+  /**
+   * orBadRequest
+   */
+  public orBadRequest(message?: string, payload?: object): void {
+    this.orBoom(CODES.BAD_REQUEST, message, payload);
+  }
+
+  /**
+   * orBoom
+   */
+  public orBoom(code?: number, message?: string, payload?: object): void {
+    this.assertOrBoom(!this.shouldThrow, code, message, payload);
+  }
+
+  /**
+   * aOrB - Assert or Boom
+   */
+  public readonly assertOrBoom = (value: any, statusCode?: number, message?: string, payload?: object): void => {
+    if (!value) {
+      const code: number | undefined = statusCode || (!!message ? CODES.BAD_REQUEST : undefined);
+      const errMessage: string = !!message ? message : 'Value is not truthy';
+      throw new boom(errMessage, {statusCode: code, data: payload});
+    }
+  };
+
+  /**
+   * orBam
+   */
+  public orBam(message?: string, payload?: object): void {
+    this.assertOrBam(!this.shouldThrow, message, payload);
+  }
+
+  /**
+   * Assert or Bam
+   */
+  public readonly assertOrBam = (value: any, message?: string, payload?: object): void => {
+    if (!value) {
+      const errMessage: string = !!message ? message : 'Value is not truthy';
+      const error: Bam = new Error(errMessage);
+      error.data = payload;
+      throw error;
+    }
+  };
 }
+
+export default new AssertOrBoom().assertOrBoom;
