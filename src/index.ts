@@ -1,3 +1,4 @@
+import is from '@sindresorhus/is';
 import * as boom from 'boom';
 import {CODES} from 'magic-http-status';
 
@@ -5,20 +6,15 @@ interface Bam extends Error {
   data?: object;
 }
 
+function firstLetterUpperCase(s: string): string {
+  return s[0].toUpperCase() + s.substring(1);
+}
+
 export class AssertOrBoom {
   shouldThrow: boolean = false;
 
-  /*
-   * Validation 
-   */
-
-  /**
-   * isString
-   */
-  public isString(value: any): this {
-    this.shouldThrow = typeof value !== 'string';
-
-    return this;
+  constructor() {
+    this.addIsMethods();
   }
 
   /*
@@ -68,6 +64,32 @@ export class AssertOrBoom {
       throw error;
     }
   };
+
+  /**
+   * Validation
+   */
+  private addIsMethods(): void {
+    Object.keys(is).map((key: string) => {
+      if (key === 'default') {
+        return;
+      }
+
+      const name: string = key.includes('_')
+        ? `is${firstLetterUpperCase(key.substring(0, key.length - 1))}`
+        : `is${firstLetterUpperCase(key)}`;
+
+      Object.defineProperty(
+        this,
+        name,
+        (value: any): this => {
+          // @ts-ignore
+          this.shouldThrow = (is[key] as (value: any) => boolean)(value);
+
+          return this;
+        },
+      );
+    });
+  }
 }
 
 export default new AssertOrBoom().assertOrBoom;

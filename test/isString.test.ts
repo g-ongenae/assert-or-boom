@@ -12,6 +12,7 @@ test('should not set shouldThrow to true', (t: Assertions) => {
   const valuesToTest: any[] = [`value to test ${true}`, 'value to test', 'value to "tesst"', ''];
 
   for (const value of valuesToTest) {
+    // @ts-ignore
     assert.isString(value);
     t.false(assert.shouldThrow);
   }
@@ -34,6 +35,7 @@ test('should set shouldThrow to true', (t: Assertions) => {
 
   for (const value of valuesToTest) {
     assert.shouldThrow = false; // reset
+    // @ts-ignore
     assert.isString(value);
     t.true(assert.shouldThrow);
   }
