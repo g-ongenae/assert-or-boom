@@ -224,7 +224,7 @@ export class Writer {
                     assert.or${funcName}();
                     t.fail("Didn't throw an error");
                 } catch (err) {
-                    t.is(err.output.statusCode, CODES.${name.replace(' ', '_')});
+                    t.is(err.output.statusCode, CODES.${name.replace(/\s/ig, '_')});
                 }                
             });
 
