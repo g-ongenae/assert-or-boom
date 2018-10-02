@@ -3,7 +3,7 @@ import * as boom from 'boom';
 
 import {AssertOrBoom} from '../src/index';
 
-function macroShouldThrowGoodStatusCode(t: Assertions, input: string, expected: number) {
+export function macroShouldThrowGoodStatusCode(t: Assertions, input: string, expected: number) {
   const assert: AssertOrBoom = new AssertOrBoom();
   assert.shouldThrow = true;
 
@@ -19,10 +19,10 @@ function macroShouldThrowGoodStatusCode(t: Assertions, input: string, expected: 
 }
 
 // @ts-ignore
-macroShouldThrowGoodStatusCode.title = (providedTitle: string | null, input: string, expected: number) =>
-  `${providedTitle} ${input} should throw the status code ${expected}`.trim();
+// macroShouldThrowGoodStatusCode.title = (providedTitle: string | null, input: string, expected: number) =>
+//   `${providedTitle} ${input} should throw the status code ${expected}`.trim();
 
-function macroShouldThrowGoodStatusMessage(t: Assertions, input: string, expected: number) {
+export function macroShouldThrowGoodStatusMessage(t: Assertions, input: string, expected: number) {
   const assert: AssertOrBoom = new AssertOrBoom();
   assert.shouldThrow = true;
 
@@ -39,5 +39,5 @@ function macroShouldThrowGoodStatusMessage(t: Assertions, input: string, expecte
 }
 
 // @ts-ignore
-macroShouldThrowGoodStatusMessage.title = (providedTitle: string | null, input: string, expected: number) =>
-  `${providedTitle} ${input} should throw the status message "${expected}"`.trim();
+// macroShouldThrowGoodStatusMessage.title = (providedTitle: string | null, input: string, expected: number) =>
+//   `${providedTitle} ${input} should throw the status message "${expected}"`.trim();

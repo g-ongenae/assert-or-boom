@@ -1,8 +1,8 @@
 import is from '@sindresorhus/is';
-import * as boom from 'boom';
 import {writeFile, ensureDir} from 'fs-extra';
 import {resolve} from 'path';
 import {firstLetterUpperCase} from './string';
+import {STATUS_CODES} from 'http';
 
 export class Writer {
   private readonly baseDir: string;
@@ -49,8 +49,8 @@ export class Writer {
             key = key.substring(0, key.length - 1);
         }
 
-        methods.join(this.writeIs(key));
-        methods.join(this.writeIsNot(key));
+        methods.push(this.writeIs(key));
+        methods.push(this.writeIsNot(key));
         await this.writeIsDoc(key);
         await this.writeIsNotDoc(key);
         await this.writeIsTest(key);
@@ -63,12 +63,11 @@ export class Writer {
   private async addOrMethods(): Promise<string> {
     const methods: string[] = [];
 
-    Object.keys(boom).map(async (key: string) => {
-        if (key === 'default') {
-            return;
-        }
-
-        methods.join(this.writeOr(key));
+    Object.keys(STATUS_CODES).map(async (n: string) => {
+        if (parseInt(n) < 400) return;
+        const key: string | undefined = STATUS_CODES[n];
+        if (typeof key === 'undefined') return;
+        methods.push(this.writeOr(key));
         await this.writeOrDoc(key);
         await this.writeOrTest(key);
     });
@@ -169,7 +168,7 @@ export class Writer {
 
             let assert: AssertOrBoom;
 
-            beforeEAch('Instantiate an AssertOrBoom object', () => {
+            beforeEach('Instantiate an AssertOrBoom object', () => {
                 assert = new AssertOrBoom();
             });
 
@@ -267,7 +266,7 @@ export class Writer {
             \`\`\`
         `;
 
-    return writeFile(`${this.baseDir}/doc/or/or${funcName}`, content);
+    return writeFile(`${this.baseDir}/doc/or/or${funcName}.md`, content);
   }
 
   /**
@@ -378,7 +377,7 @@ export class Writer {
             \`\`\`
         `;
 
-    return writeFile(`${this.baseDir}/doc/is/is${funcName}`, content);
+    return writeFile(`${this.baseDir}/doc/is/is${funcName}.md`, content);
   }
 
   private writeIsNot(name: string): string {
@@ -485,7 +484,7 @@ export class Writer {
             \`\`\`
         `;
 
-    return writeFile(`${this.baseDir}/doc/isNot/isNot${funcName}`, content);
+    return writeFile(`${this.baseDir}/doc/isNot/isNot${funcName}.md`, content);
   }
 }
 

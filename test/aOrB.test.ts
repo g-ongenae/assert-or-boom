@@ -4,7 +4,7 @@ import {CODES} from 'magic-http-status';
 
 import aOrB, {AssertOrBoom} from '../src/index';
 
-function macroShouldThrowGoodStatusCode(t: Assertions, input: string, expected: number) {
+export function macroShouldThrowGoodStatusCode(t: Assertions, input: string, expected: number) {
   const assert: AssertOrBoom = new AssertOrBoom();
   assert.shouldThrow = true;
 
@@ -19,8 +19,8 @@ function macroShouldThrowGoodStatusCode(t: Assertions, input: string, expected: 
   }
 }
 
-macroShouldThrowGoodStatusCode.title = (providedTitle: string | null, input: string, expected: number) =>
-  `${providedTitle} ${input} should throw the status code ${expected}`.trim();
+// macroShouldThrowGoodStatusCode.title = (providedTitle: string | null, input: string, expected: number) =>
+//   `${providedTitle} ${input} should throw the status code ${expected}`.trim();
 
 test('should pass when the value is truthy', (t: Assertions) => {
   t.notThrows(() => aOrB(true));
