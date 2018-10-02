@@ -4,7 +4,9 @@
  * @example 'anyThing' => 'AnyThing'
  */
 function firstLetterUpperCase(s: string): string {
-  return s[0].toUpperCase() + s.substring(1);
+  const s2: string =  s[0].toUpperCase() + s.substring(1);
+
+  return s2.replace(/\s/i, '');
 }
 
 /**

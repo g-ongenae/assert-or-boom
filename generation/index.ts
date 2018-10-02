@@ -84,6 +84,10 @@ export class Writer {
             import is from '@sindresorhus/is';
             import * as boom from 'boom';
 
+            interface Bam extends Error {
+                data: object;
+            }
+
             export class AssertOrBoom {
                 /**
                  * Thrower
@@ -93,7 +97,7 @@ export class Writer {
                  * orBoom
                  */
                 public orBoom(code?: number, message?: string, payload?: object): void {
-                  this.assertOrBoom(!this.shouldThrow, code, message, payload);
+                  this.assertOrBoom(!this.willThrow, code, message, payload);
                 }
               
                 /**
@@ -111,7 +115,7 @@ export class Writer {
                  * orBam
                  */
                 public orBam(message?: string, payload?: object): void {
-                  this.assertOrBam(!this.shouldThrow, message, payload);
+                  this.assertOrBam(!this.willThrow, message, payload);
                 }
               
                 /**
@@ -338,7 +342,7 @@ export class Writer {
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(invalid).isNot${funcName}invalid);
+                assert.isNot${funcName}(invalid).isNot${funcName}(invalid);
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
@@ -445,7 +449,7 @@ export class Writer {
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(invalid).isNot${funcName}invalid);
+                assert.isNot${funcName}(invalid).isNot${funcName}(invalid);
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
