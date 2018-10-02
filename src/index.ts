@@ -1,13 +1,10 @@
 import is from '@sindresorhus/is';
 import * as boom from 'boom';
-import {CODES} from 'magic-http-status';
+import {CODES, MESSAGES} from 'magic-http-status';
+import {firstLetterUpperCase, toPascalCase} from '../generation/string';
 
 interface Bam extends Error {
   data?: object;
-}
-
-function firstLetterUpperCase(s: string): string {
-  return s[0].toUpperCase() + s.substring(1);
 }
 
 export class AssertOrBoom {
@@ -15,18 +12,12 @@ export class AssertOrBoom {
 
   constructor() {
     this.addIsMethods();
+    this.addOrMethods();
   }
-
-  /*
-   * Thrower
-   */
 
   /**
-   * orBadRequest
+   * Thrower
    */
-  public orBadRequest(message?: string, payload?: object): void {
-    this.orBoom(CODES.BAD_REQUEST, message, payload);
-  }
 
   /**
    * orBoom
@@ -66,10 +57,11 @@ export class AssertOrBoom {
   };
 
   /**
-   * Validation
+   * Add method to validate data
    */
   private addIsMethods(): void {
     Object.keys(is).map((key: string) => {
+      console.log('key', key);
       if (key === 'default') {
         return;
       }
@@ -90,6 +82,24 @@ export class AssertOrBoom {
       );
     });
   }
+
+  /**
+   * Add methods to throws specific HTTP Status code
+   */
+  private addOrMethods() {
+    Object.values(MESSAGES).map((value: string) => {
+      console.log('value', `or${toPascalCase(value)}`);
+      Object.defineProperty(
+        this,
+        `or${toPascalCase(value)}`,
+        (message?: string, payload?: object): void => {
+          this.orBoom(CODES[value], message || value, payload);
+        },
+      );
+    });
+  }
 }
 
 export default new AssertOrBoom().assertOrBoom;
+
+console.log('This Boom', new AssertOrBoom());

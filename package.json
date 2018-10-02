@@ -35,6 +35,7 @@
   "homepage": "https://github.com/g-ongenae/assert-or-boom#readme",
   "devDependencies": {
     "@types/boom": "7.2.0",
+    "@types/fs-extra": "5.0.4",
     "@types/node": "10.10.3",
     "ava": "1.0.0-beta.8",
     "husky": "0.14.3",
@@ -66,6 +67,7 @@
   "dependencies": {
     "@sindresorhus/is": "0.11.0",
     "boom": "7.2.0",
+    "fs-extra": "7.0.0",
     "magic-http-status": "1.0.1"
   }
 }
