@@ -14,7 +14,7 @@
     "precommit": "lint-staged",
     "prepublish": "npm run build && rm -fr dist/tests",
     "pretest": "npm run lint && npm run build",
-    "prettier": "prettier --write \"{src,test}/**/*.ts\" \"{doc/,}*.md\" \"*.json\"",
+    "prettier": "prettier --write \"{src,test}/**/*.ts\" \"{doc/**/,}*.md\" \"*.json\"",
     "test": "ava dist/test"
   },
   "repository": {
@@ -49,7 +49,7 @@
       "prettier --list-different \"{src,test}/**/*.ts\""
     ],
     "{doc/,}*.md": [
-      "prettier --list-different \"doc/*.md\""
+      "prettier --list-different \"doc/**/*.md\""
     ],
     "*.json": [
       "prettier --list-different \"*.json\""
@@ -64,6 +64,7 @@
     "trailingComma": "all"
   },
   "dependencies": {
+    "@sindresorhus/is": "0.12.0",
     "boom": "7.2.0",
     "magic-http-status": "1.0.1"
   }
