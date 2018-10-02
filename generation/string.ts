@@ -1,12 +1,21 @@
 /**
  * Transform the first letter of a string to uppercase
  * @param s string to convert
- * @example 'anyThing' => 'AnyThing'
+ * @example 'anyThing' => 'Anything'
  */
 function firstLetterUpperCase(s: string): string {
   const s2: string =  s[0].toUpperCase() + s.substring(1);
 
   return s2.replace(/\s/gi, '');
+}
+
+/**
+ * 
+ */
+function toFirstLowerCase(s: string): string {
+  const s1: string = toPascalCase(s);
+
+  return s1[0].toLowerCase() + s1.substring(1);
 }
 
 /**
@@ -31,4 +40,4 @@ function toPascalCase(s: string): string {
     .join('');
 }
 
-export {firstLetterUpperCase, toPascalCase, toTitleCase};
+export {firstLetterUpperCase, toFirstLowerCase, toPascalCase, toTitleCase};

@@ -1,7 +1,7 @@
 import is from '@sindresorhus/is';
 import {writeFile, ensureDir} from 'fs-extra';
 import {resolve} from 'path';
-import {firstLetterUpperCase, toPascalCase} from './string';
+import {firstLetterUpperCase, toPascalCase, toFirstLowerCase} from './string';
 import {STATUS_CODES} from 'http';
 
 export class Writer {
@@ -65,8 +65,12 @@ export class Writer {
 
     Object.keys(STATUS_CODES).map(async (n: string) => {
         if (parseInt(n) < 400) return;
-        const key: string | undefined = STATUS_CODES[n];
+        let key: string | undefined = STATUS_CODES[n];
         if (typeof key === 'undefined') return;
+        if (key.includes("'")) {
+            key = key.replace("'", '');
+        }
+
         methods.push(this.writeOr(key));
         await this.writeOrDoc(key);
         await this.writeOrTest(key);
@@ -83,12 +87,15 @@ export class Writer {
     return `
             import is from '@sindresorhus/is';
             import * as boom from 'boom';
+            import {CODES} from 'magic-http-status';
 
             interface Bam extends Error {
-                data: object;
+                data?: object;
             }
 
             export class AssertOrBoom {
+                willThrow: boolean;
+
                 /**
                  * Thrower
                  */
@@ -150,23 +157,23 @@ export class Writer {
              * @param message the error message
              * @param payload data to debug this error
              */
-            public or${firstLetterUpperCase(name)}(message?: string, payload?: object): void {
+            public or${toPascalCase(name)}(message?: string, payload?: object): void {
                 if (this.willThrow) {
                     this.willThrow = false;
 
-                    throw boom.${toPascalCase(name)}(message, payload);
+                    throw boom.${toFirstLowerCase(name)}(message, payload);
                 }
             }
         `;
   }
 
   private writeOrTest(name: string): Promise<void> {
-    const funcName: string = firstLetterUpperCase(name);
+    const funcName: string = toPascalCase(name);
 
     const content: string = `
             import test, {Assertions, beforeEach} from 'ava';
             import * as boom from 'boom';
-            import {CODES, MESSAGES} from 'magic-http-status';
+            import {CODES} from 'magic-http-status';
 
             import { AssertOrBoom } from '../src/index';
 
@@ -224,14 +231,14 @@ export class Writer {
                     assert.or${funcName}();
                     t.fail("Didn't throw an error");
                 } catch (err) {
-                    t.is(err.output.statusCode, CODES.${name.replace(/\s/ig, '_')});
+                    t.is(err.output.statusCode, CODES.${name.replace(/\s/ig, '_').toUpperCase()});
                 }                
             });
 
             test('should throw a "${name}" error message when not set', (t: Assertions) => {
                 assert.willThrow = true;
                 try {
-                    assert.or${funcName}(message);
+                    assert.or${funcName}();
                     t.fail("Didn't throw an error");
                 } catch (err) {
                     t.is(err.output.message, "${name}");
