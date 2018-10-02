@@ -1,7 +1,7 @@
 import is from '@sindresorhus/is';
 import {writeFile, ensureDir} from 'fs-extra';
 import {resolve} from 'path';
-import {firstLetterUpperCase} from './string';
+import {firstLetterUpperCase, toPascalCase} from './string';
 import {STATUS_CODES} from 'http';
 
 export class Writer {
@@ -154,7 +154,7 @@ export class Writer {
                 if (this.willThrow) {
                     this.willThrow = false;
 
-                    throw boom.${name}(message, payload);
+                    throw boom.${toPascalCase(name)}(message, payload);
                 }
             }
         `;
