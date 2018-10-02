@@ -6,7 +6,7 @@
 function firstLetterUpperCase(s: string): string {
   const s2: string =  s[0].toUpperCase() + s.substring(1);
 
-  return s2.replace(/\s/i, '');
+  return s2.replace(/\s/gi, '');
 }
 
 /**

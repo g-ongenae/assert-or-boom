@@ -218,23 +218,23 @@ export class Writer {
                 }
             });
 
-            test('should throw a ${name.toUpperCase()} error code', (t: Assertions) => {
+            test('should throw a "${name}" error code', (t: Assertions) => {
                 assert.willThrow = true;
                 try {
                     assert.or${funcName}();
                     t.fail("Didn't throw an error");
                 } catch (err) {
-                    t.is(err.output.statusCode, CODES.${name.toUpperCase()});
+                    t.is(err.output.statusCode, CODES.${name.replace(' ', '_')});
                 }                
             });
 
-            test('should throw a ${name.toUpperCase()} error message when not set', (t: Assertions) => {
+            test('should throw a "${name}" error message when not set', (t: Assertions) => {
                 assert.willThrow = true;
                 try {
                     assert.or${funcName}(message);
                     t.fail("Didn't throw an error");
                 } catch (err) {
-                    t.is(err.output.message, MESSAGES.${name.toUpperCase()});
+                    t.is(err.output.message, "${name}");
                 }                
             });
         `;
