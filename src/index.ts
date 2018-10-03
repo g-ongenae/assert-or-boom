@@ -2,7 +2,9 @@ import is, {Class} from '@sindresorhus/is';
 import * as boom from 'boom';
 import {CODES} from 'magic-http-status';
 
-interface Bam extends Error {
+export type Class = Class;
+
+export interface Bam extends Error {
   data?: object;
 }
 
