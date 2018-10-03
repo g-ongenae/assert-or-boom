@@ -1,23 +1,23 @@
-            # orBandwidthLimitExceeded
+# orBandwidthLimitExceeded
 
-            Throw a Boom.Bandwidth Limit Exceeded if the previous assertions where false.
+Throw a Boom.Bandwidth Limit Exceeded if the previous assertions where false.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.orBandwidthLimitExceeded(message, payload);
-            ```
+```ts
+assert.orBandwidthLimitExceeded(message, payload);
+```
 
-            ## Arguments
+## Arguments
 
-            - `message` a specific message for this error;
-            - `payload` some data to throw with the error;
+- `message` a specific message for this error;
+- `payload` some data to throw with the error;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isString(undefined).orBandwidthLimitExceeded('Badaboom');
-            ```
+assert.isString(undefined).orBandwidthLimitExceeded('Badaboom');
+```

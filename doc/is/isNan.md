@@ -1,22 +1,22 @@
-            # isNan
+# isNan
 
-            Check if a value is a valid nan.
+Check if a value is a valid nan.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNan(value)
-            ```
+```ts
+assert.isNan(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNan(undefined).orBoom('Badaboom');
-            ```
+assert.isNan(undefined).orBoom('Badaboom');
+```

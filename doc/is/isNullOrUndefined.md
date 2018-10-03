@@ -1,22 +1,22 @@
-            # isNullOrUndefined
+# isNullOrUndefined
 
-            Check if a value is a valid nullOrUndefined.
+Check if a value is a valid nullOrUndefined.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNullOrUndefined(value)
-            ```
+```ts
+assert.isNullOrUndefined(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNullOrUndefined(undefined).orBoom('Badaboom');
-            ```
+assert.isNullOrUndefined(undefined).orBoom('Badaboom');
+```

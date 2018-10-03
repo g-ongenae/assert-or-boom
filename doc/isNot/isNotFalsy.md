@@ -1,22 +1,22 @@
-            # isNotFalsy
+# isNotFalsy
 
-            Check if a value is not a valid falsy.
+Check if a value is not a valid falsy.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNotFalsy(value)
-            ```
+```ts
+assert.isNotFalsy(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNotFalsy(undefined).orBoom('Badaboom');
-            ```
+assert.isNotFalsy(undefined).orBoom('Badaboom');
+```

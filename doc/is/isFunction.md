@@ -1,22 +1,22 @@
-            # isFunction
+# isFunction
 
-            Check if a value is a valid function.
+Check if a value is a valid function.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isFunction(value)
-            ```
+```ts
+assert.isFunction(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isFunction(undefined).orBoom('Badaboom');
-            ```
+assert.isFunction(undefined).orBoom('Badaboom');
+```

@@ -1,22 +1,22 @@
-            # isUint16Array
+# isUint16Array
 
-            Check if a value is a valid uint16Array.
+Check if a value is a valid uint16Array.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isUint16Array(value)
-            ```
+```ts
+assert.isUint16Array(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isUint16Array(undefined).orBoom('Badaboom');
-            ```
+assert.isUint16Array(undefined).orBoom('Badaboom');
+```

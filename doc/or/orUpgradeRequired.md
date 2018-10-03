@@ -1,23 +1,23 @@
-            # orUpgradeRequired
+# orUpgradeRequired
 
-            Throw a Boom.Upgrade Required if the previous assertions where false.
+Throw a Boom.Upgrade Required if the previous assertions where false.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.orUpgradeRequired(message, payload);
-            ```
+```ts
+assert.orUpgradeRequired(message, payload);
+```
 
-            ## Arguments
+## Arguments
 
-            - `message` a specific message for this error;
-            - `payload` some data to throw with the error;
+- `message` a specific message for this error;
+- `payload` some data to throw with the error;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isString(undefined).orUpgradeRequired('Badaboom');
-            ```
+assert.isString(undefined).orUpgradeRequired('Badaboom');
+```

@@ -1,22 +1,22 @@
-            # isDate
+# isDate
 
-            Check if a value is a valid date.
+Check if a value is a valid date.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isDate(value)
-            ```
+```ts
+assert.isDate(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isDate(undefined).orBoom('Badaboom');
-            ```
+assert.isDate(undefined).orBoom('Badaboom');
+```

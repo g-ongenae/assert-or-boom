@@ -1,22 +1,22 @@
-            # isObservable
+# isObservable
 
-            Check if a value is a valid observable.
+Check if a value is a valid observable.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isObservable(value)
-            ```
+```ts
+assert.isObservable(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isObservable(undefined).orBoom('Badaboom');
-            ```
+assert.isObservable(undefined).orBoom('Badaboom');
+```

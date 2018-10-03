@@ -1,23 +1,23 @@
-            # orHTTPVersionNotSupported
+# orHTTPVersionNotSupported
 
-            Throw a Boom.HTTP Version Not Supported if the previous assertions where false.
+Throw a Boom.HTTP Version Not Supported if the previous assertions where false.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.orHTTPVersionNotSupported(message, payload);
-            ```
+```ts
+assert.orHTTPVersionNotSupported(message, payload);
+```
 
-            ## Arguments
+## Arguments
 
-            - `message` a specific message for this error;
-            - `payload` some data to throw with the error;
+- `message` a specific message for this error;
+- `payload` some data to throw with the error;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isString(undefined).orHTTPVersionNotSupported('Badaboom');
-            ```
+assert.isString(undefined).orHTTPVersionNotSupported('Badaboom');
+```

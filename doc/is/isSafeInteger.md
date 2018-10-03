@@ -1,22 +1,22 @@
-            # isSafeInteger
+# isSafeInteger
 
-            Check if a value is a valid safeInteger.
+Check if a value is a valid safeInteger.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isSafeInteger(value)
-            ```
+```ts
+assert.isSafeInteger(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isSafeInteger(undefined).orBoom('Badaboom');
-            ```
+assert.isSafeInteger(undefined).orBoom('Badaboom');
+```

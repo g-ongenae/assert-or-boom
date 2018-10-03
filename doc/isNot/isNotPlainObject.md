@@ -1,22 +1,22 @@
-            # isNotPlainObject
+# isNotPlainObject
 
-            Check if a value is not a valid plainObject.
+Check if a value is not a valid plainObject.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNotPlainObject(value)
-            ```
+```ts
+assert.isNotPlainObject(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNotPlainObject(undefined).orBoom('Badaboom');
-            ```
+assert.isNotPlainObject(undefined).orBoom('Badaboom');
+```

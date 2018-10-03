@@ -1,22 +1,22 @@
-            # isNotGenerator
+# isNotGenerator
 
-            Check if a value is not a valid generator.
+Check if a value is not a valid generator.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNotGenerator(value)
-            ```
+```ts
+assert.isNotGenerator(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNotGenerator(undefined).orBoom('Badaboom');
-            ```
+assert.isNotGenerator(undefined).orBoom('Badaboom');
+```

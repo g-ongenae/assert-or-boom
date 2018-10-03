@@ -1,22 +1,22 @@
-            # isEmpty
+# isEmpty
 
-            Check if a value is a valid empty.
+Check if a value is a valid empty.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isEmpty(value)
-            ```
+```ts
+assert.isEmpty(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isEmpty(undefined).orBoom('Badaboom');
-            ```
+assert.isEmpty(undefined).orBoom('Badaboom');
+```

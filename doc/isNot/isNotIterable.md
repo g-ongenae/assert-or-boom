@@ -1,22 +1,22 @@
-            # isNotIterable
+# isNotIterable
 
-            Check if a value is not a valid iterable.
+Check if a value is not a valid iterable.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNotIterable(value)
-            ```
+```ts
+assert.isNotIterable(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNotIterable(undefined).orBoom('Badaboom');
-            ```
+assert.isNotIterable(undefined).orBoom('Badaboom');
+```

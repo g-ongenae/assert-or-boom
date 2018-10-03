@@ -1,22 +1,22 @@
-            # isInteger
+# isInteger
 
-            Check if a value is a valid integer.
+Check if a value is a valid integer.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isInteger(value)
-            ```
+```ts
+assert.isInteger(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isInteger(undefined).orBoom('Badaboom');
-            ```
+assert.isInteger(undefined).orBoom('Badaboom');
+```

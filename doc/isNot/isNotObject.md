@@ -1,22 +1,22 @@
-            # isNotObject
+# isNotObject
 
-            Check if a value is not a valid object.
+Check if a value is not a valid object.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNotObject(value)
-            ```
+```ts
+assert.isNotObject(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNotObject(undefined).orBoom('Badaboom');
-            ```
+assert.isNotObject(undefined).orBoom('Badaboom');
+```

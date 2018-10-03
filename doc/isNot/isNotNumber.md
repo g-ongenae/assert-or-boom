@@ -1,22 +1,22 @@
-            # isNotNumber
+# isNotNumber
 
-            Check if a value is not a valid number.
+Check if a value is not a valid number.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isNotNumber(value)
-            ```
+```ts
+assert.isNotNumber(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isNotNumber(undefined).orBoom('Badaboom');
-            ```
+assert.isNotNumber(undefined).orBoom('Badaboom');
+```

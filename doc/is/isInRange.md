@@ -1,22 +1,22 @@
-            # isInRange
+# isInRange
 
-            Check if a value is a valid inRange.
+Check if a value is a valid inRange.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isInRange(value)
-            ```
+```ts
+assert.isInRange(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isInRange(undefined).orBoom('Badaboom');
-            ```
+assert.isInRange(undefined).orBoom('Badaboom');
+```

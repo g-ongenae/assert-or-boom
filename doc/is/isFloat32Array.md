@@ -1,22 +1,22 @@
-            # isFloat32Array
+# isFloat32Array
 
-            Check if a value is a valid float32Array.
+Check if a value is a valid float32Array.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isFloat32Array(value)
-            ```
+```ts
+assert.isFloat32Array(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isFloat32Array(undefined).orBoom('Badaboom');
-            ```
+assert.isFloat32Array(undefined).orBoom('Badaboom');
+```

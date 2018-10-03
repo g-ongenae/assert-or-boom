@@ -1,22 +1,22 @@
-            # isDomElement
+# isDomElement
 
-            Check if a value is a valid domElement.
+Check if a value is a valid domElement.
 
-            ## Skeleton
+## Skeleton
 
-            ```ts
-            assert.isDomElement(value)
-            ```
+```ts
+assert.isDomElement(value)
+```
 
-            ## Arguments
+## Arguments
 
-            - `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- `value` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            ```ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+```ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isDomElement(undefined).orBoom('Badaboom');
-            ```
+assert.isDomElement(undefined).orBoom('Badaboom');
+```
