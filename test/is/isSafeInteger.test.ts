@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotSafeInteger(invalid).isNotSafeInteger(valid);
+  assert.isSafeInteger(invalid).isSafeInteger(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotSafeInteger(valid).isNotSafeInteger(invalid);
+  assert.isSafeInteger(valid).isSafeInteger(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotSafeInteger(invalid).isNotSafeInteger(invalid);
+  assert.isSafeInteger(invalid).isSafeInteger(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotSafeInteger(valid).isNotSafeInteger(valid);
-  t.true(assert.willThrow);
+  assert.isSafeInteger(valid).isSafeInteger(valid);
+  t.false(assert.willThrow);
 });

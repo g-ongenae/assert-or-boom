@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotArrayBuffer(invalid).isNotArrayBuffer(valid);
+  assert.isArrayBuffer(invalid).isArrayBuffer(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotArrayBuffer(valid).isNotArrayBuffer(invalid);
+  assert.isArrayBuffer(valid).isArrayBuffer(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotArrayBuffer(invalid).isNotArrayBuffer(invalid);
+  assert.isArrayBuffer(invalid).isArrayBuffer(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotArrayBuffer(valid).isNotArrayBuffer(valid);
-  t.true(assert.willThrow);
+  assert.isArrayBuffer(valid).isArrayBuffer(valid);
+  t.false(assert.willThrow);
 });

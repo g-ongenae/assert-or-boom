@@ -61,5 +61,5 @@ test('should be chainable', (t: Assertions) => {
 
   assert.willThrow = false; // reset
   assert.isNotDirectInstanceOf(valid, TestClass).isNotDirectInstanceOf(valid, TestClass);
-  t.true(assert.willThrow);
+  t.false(assert.willThrow);
 });

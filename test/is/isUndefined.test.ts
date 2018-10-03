@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotUndefined(invalid).isNotUndefined(valid);
+  assert.isUndefined(invalid).isUndefined(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUndefined(valid).isNotUndefined(invalid);
+  assert.isUndefined(valid).isUndefined(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUndefined(invalid).isNotUndefined(invalid);
+  assert.isUndefined(invalid).isUndefined(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUndefined(valid).isNotUndefined(valid);
-  t.true(assert.willThrow);
+  assert.isUndefined(valid).isUndefined(valid);
+  t.false(assert.willThrow);
 });

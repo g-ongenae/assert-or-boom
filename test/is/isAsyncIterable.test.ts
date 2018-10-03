@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncIterable(invalid).isNotAsyncIterable(valid);
+  assert.isAsyncIterable(invalid).isAsyncIterable(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncIterable(valid).isNotAsyncIterable(invalid);
+  assert.isAsyncIterable(valid).isAsyncIterable(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncIterable(invalid).isNotAsyncIterable(invalid);
+  assert.isAsyncIterable(invalid).isAsyncIterable(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncIterable(valid).isNotAsyncIterable(valid);
-  t.true(assert.willThrow);
+  assert.isAsyncIterable(valid).isAsyncIterable(valid);
+  t.false(assert.willThrow);
 });

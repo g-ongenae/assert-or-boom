@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotFloat64Array(invalid).isNotFloat64Array(valid);
+  assert.isFloat64Array(invalid).isFloat64Array(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotFloat64Array(valid).isNotFloat64Array(invalid);
+  assert.isFloat64Array(valid).isFloat64Array(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotFloat64Array(invalid).isNotFloat64Array(invalid);
+  assert.isFloat64Array(invalid).isFloat64Array(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotFloat64Array(valid).isNotFloat64Array(valid);
-  t.true(assert.willThrow);
+  assert.isFloat64Array(valid).isFloat64Array(valid);
+  t.false(assert.willThrow);
 });

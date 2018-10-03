@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotGeneratorFunction(invalid).isNotGeneratorFunction(valid);
+  assert.isGeneratorFunction(invalid).isGeneratorFunction(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotGeneratorFunction(valid).isNotGeneratorFunction(invalid);
+  assert.isGeneratorFunction(valid).isGeneratorFunction(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotGeneratorFunction(invalid).isNotGeneratorFunction(invalid);
+  assert.isGeneratorFunction(invalid).isGeneratorFunction(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotGeneratorFunction(valid).isNotGeneratorFunction(valid);
-  t.true(assert.willThrow);
+  assert.isGeneratorFunction(valid).isGeneratorFunction(valid);
+  t.false(assert.willThrow);
 });

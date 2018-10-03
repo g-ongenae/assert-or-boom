@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotSharedArrayBuffer(invalid).isNotSharedArrayBuffer(valid);
+  assert.isSharedArrayBuffer(invalid).isSharedArrayBuffer(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotSharedArrayBuffer(valid).isNotSharedArrayBuffer(invalid);
+  assert.isSharedArrayBuffer(valid).isSharedArrayBuffer(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotSharedArrayBuffer(invalid).isNotSharedArrayBuffer(invalid);
+  assert.isSharedArrayBuffer(invalid).isSharedArrayBuffer(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotSharedArrayBuffer(valid).isNotSharedArrayBuffer(valid);
-  t.true(assert.willThrow);
+  assert.isSharedArrayBuffer(valid).isSharedArrayBuffer(valid);
+  t.false(assert.willThrow);
 });

@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotUint32Array(invalid).isNotUint32Array(valid);
+  assert.isUint32Array(invalid).isUint32Array(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUint32Array(valid).isNotUint32Array(invalid);
+  assert.isUint32Array(valid).isUint32Array(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUint32Array(invalid).isNotUint32Array(invalid);
+  assert.isUint32Array(invalid).isUint32Array(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUint32Array(valid).isNotUint32Array(valid);
-  t.true(assert.willThrow);
+  assert.isUint32Array(valid).isUint32Array(valid);
+  t.false(assert.willThrow);
 });

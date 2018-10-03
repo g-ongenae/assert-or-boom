@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotUint8ClampedArray(invalid).isNotUint8ClampedArray(valid);
+  assert.isUint8ClampedArray(invalid).isUint8ClampedArray(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUint8ClampedArray(valid).isNotUint8ClampedArray(invalid);
+  assert.isUint8ClampedArray(valid).isUint8ClampedArray(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUint8ClampedArray(invalid).isNotUint8ClampedArray(invalid);
+  assert.isUint8ClampedArray(invalid).isUint8ClampedArray(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotUint8ClampedArray(valid).isNotUint8ClampedArray(valid);
-  t.true(assert.willThrow);
+  assert.isUint8ClampedArray(valid).isUint8ClampedArray(valid);
+  t.false(assert.willThrow);
 });

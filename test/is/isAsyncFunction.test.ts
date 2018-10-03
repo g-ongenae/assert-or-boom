@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncFunction(invalid).isNotAsyncFunction(valid);
+  assert.isAsyncFunction(invalid).isAsyncFunction(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncFunction(valid).isNotAsyncFunction(invalid);
+  assert.isAsyncFunction(valid).isAsyncFunction(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncFunction(invalid).isNotAsyncFunction(invalid);
+  assert.isAsyncFunction(invalid).isAsyncFunction(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotAsyncFunction(valid).isNotAsyncFunction(valid);
-  t.true(assert.willThrow);
+  assert.isAsyncFunction(valid).isAsyncFunction(valid);
+  t.false(assert.willThrow);
 });

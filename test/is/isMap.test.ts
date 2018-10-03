@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotMap(invalid).isNotMap(valid);
+  assert.isMap(invalid).isMap(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotMap(valid).isNotMap(invalid);
+  assert.isMap(valid).isMap(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotMap(invalid).isNotMap(invalid);
+  assert.isMap(invalid).isMap(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotMap(valid).isNotMap(valid);
-  t.true(assert.willThrow);
+  assert.isMap(valid).isMap(valid);
+  t.false(assert.willThrow);
 });

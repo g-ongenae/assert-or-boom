@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotInt16Array(invalid).isNotInt16Array(valid);
+  assert.isInt16Array(invalid).isInt16Array(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInt16Array(valid).isNotInt16Array(invalid);
+  assert.isInt16Array(valid).isInt16Array(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInt16Array(invalid).isNotInt16Array(invalid);
+  assert.isInt16Array(invalid).isInt16Array(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInt16Array(valid).isNotInt16Array(valid);
-  t.true(assert.willThrow);
+  assert.isInt16Array(valid).isInt16Array(valid);
+  t.false(assert.willThrow);
 });

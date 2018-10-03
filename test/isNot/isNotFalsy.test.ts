@@ -49,5 +49,5 @@ test('should be chainable', (t: Assertions) => {
 
   assert.willThrow = false; // reset
   assert.isNotFalsy(valid).isNotFalsy(valid);
-  t.true(assert.willThrow);
+  t.false(assert.willThrow);
 });

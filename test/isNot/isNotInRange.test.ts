@@ -51,5 +51,5 @@ test('should be chainable', (t: Assertions) => {
 
   assert.willThrow = false; // reset
   assert.isNotInRange(valid, testRange).isNotInRange(valid, testRange);
-  t.true(assert.willThrow);
+  t.false(assert.willThrow);
 });

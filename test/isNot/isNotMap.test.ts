@@ -49,5 +49,5 @@ test('should be chainable', (t: Assertions) => {
 
   assert.willThrow = false; // reset
   assert.isNotMap(valid).isNotMap(valid);
-  t.true(assert.willThrow);
+  t.false(assert.willThrow);
 });

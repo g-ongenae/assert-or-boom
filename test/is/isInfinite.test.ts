@@ -36,18 +36,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotInfinite(invalid).isNotInfinite(valid);
+  assert.isInfinite(invalid).isInfinite(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInfinite(valid).isNotInfinite(invalid);
+  assert.isInfinite(valid).isInfinite(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInfinite(invalid).isNotInfinite(invalid);
+  assert.isInfinite(invalid).isInfinite(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInfinite(valid).isNotInfinite(valid);
-  t.true(assert.willThrow);
+  assert.isInfinite(valid).isInfinite(valid);
+  t.false(assert.willThrow);
 });
