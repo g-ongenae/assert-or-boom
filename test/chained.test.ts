@@ -8,40 +8,60 @@ beforeEach('Initialize AssertOrBoom', () => {
   assert = new AssertOrBoom();
 });
 
-test('should not throw', (t: Assertions) => {
+test('should be chainable between is and or', (t: Assertions) => {
   t.notThrows(() => assert.isString('test').orBadRequest());
-});
-
-test('should throw', (t: Assertions) => {
   t.throws(() => assert.isString(false).orBadRequest());
 });
 
-test('should not throw', (t: Assertions) => {
+test('should be chainable with multiple is and or', (t: Assertions) => {
   t.notThrows(() =>
     assert
       .isString('test')
       .isString('test')
       .orBadRequest(),
   );
+  t.throws(() =>
+    assert
+      .isString(false)
+      .isString('test')
+      .orBadRequest(),
+  );
+  t.throws(() =>
+    assert
+      .isString('test')
+      .isString(false)
+      .orBadRequest(),
+  );
+  t.throws(() =>
+    assert
+      .isString(false)
+      .isString(false)
+      .orBadRequest(),
+  );
 });
 
-test('should throw', (t: Assertions) => {
-  t.throws(() =>
+test('should be chainable between isNot and or', (t: Assertions) => {
+  t.notThrows(() => assert.isNotString(false).orBadRequest());
+  t.throws(() => assert.isNotString('test').orBadRequest());
+});
+
+test('should be chainable with multiple is and isNot and and or', (t: Assertions) => {
+  t.notThrows(() =>
     assert
-      .isString(false)
+      .isNotString(false)
       .isString('test')
       .orBadRequest(),
   );
   t.throws(() =>
     assert
-      .isString('test')
+      .isNotString(false)
       .isString(false)
       .orBadRequest(),
   );
   t.throws(() =>
     assert
-      .isString(false)
-      .isString(false)
+      .isNotString('test')
+      .isString('test')
       .orBadRequest(),
   );
 });
