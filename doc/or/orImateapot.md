@@ -1,11 +1,11 @@
-# orImateapot
+# orImATeapot
 
 Throw a Boom.Im a teapot if the previous assertions were false.
 
 ## Skeleton
 
 ```ts
-assert.orImateapot(message, payload);
+assert.orImATeapot(message, payload);
 ```
 
 ## Arguments
@@ -19,5 +19,5 @@ assert.orImateapot(message, payload);
 import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
-assert.isString(undefined).orImateapot('Badaboom');
+assert.isString(undefined).orImATeapot('Badaboom');
 ```
