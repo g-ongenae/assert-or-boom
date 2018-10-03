@@ -1,4 +1,4 @@
-import is from '@sindresorhus/is';
+import is, {Class} from '@sindresorhus/is';
 import * as boom from 'boom';
 import {CODES} from 'magic-http-status';
 
@@ -29,6 +29,8 @@ export class AssertOrBoom {
    */
   public readonly assertOrBoom = (value: any, statusCode?: number, message?: string, payload?: object): void => {
     if (!value) {
+      this.willThrow = false;
+
       const code: number | undefined = statusCode || (!!message ? CODES.BAD_REQUEST : undefined);
       const errMessage: string = !!message ? message : 'Value is not truthy';
       throw new boom(errMessage, {statusCode: code, data: payload});
@@ -47,12 +49,18 @@ export class AssertOrBoom {
    */
   public readonly assertOrBam = (value: any, message?: string, payload?: object): void => {
     if (!value) {
+      this.willThrow = false;
+
       const errMessage: string = !!message ? message : 'Value is not truthy';
       const error: Bam = new Error(errMessage);
       error.data = payload;
       throw error;
     }
   };
+
+  //-----------
+  // IS METHODS
+  //-----------
 
   /**
    * Check is undefined valid value
@@ -917,8 +925,8 @@ export class AssertOrBoom {
    * @param value the value to check
    * @returns itself to be chained with an error or with other check
    */
-  public isDirectInstanceOf(value: any): this {
-    this.willThrow = !is.directInstanceOf(value) || this.willThrow;
+  public isDirectInstanceOf<C extends object>(value: any, klass: Class<C>): this {
+    this.willThrow = !is.directInstanceOf(value, klass) || this.willThrow;
 
     return this;
   }
@@ -928,8 +936,8 @@ export class AssertOrBoom {
    * @param value the value to check
    * @returns itself to be chained with an error or with other check
    */
-  public isNotDirectInstanceOf(value: any): this {
-    this.willThrow = is.directInstanceOf(value) || this.willThrow;
+  public isNotDirectInstanceOf<C extends object>(value: any, klass: Class<C>): this {
+    this.willThrow = is.directInstanceOf(value, klass) || this.willThrow;
 
     return this;
   }
@@ -1159,8 +1167,8 @@ export class AssertOrBoom {
    * @param value the value to check
    * @returns itself to be chained with an error or with other check
    */
-  public isInRange(value: any): this {
-    this.willThrow = !is.inRange(value) || this.willThrow;
+  public isInRange(value: any, range: number | number[]): this {
+    this.willThrow = !is.inRange(value, range) || this.willThrow;
 
     return this;
   }
@@ -1170,8 +1178,8 @@ export class AssertOrBoom {
    * @param value the value to check
    * @returns itself to be chained with an error or with other check
    */
-  public isNotInRange(value: any): this {
-    this.willThrow = is.inRange(value) || this.willThrow;
+  public isNotInRange(value: any, range: number | number[]): this {
+    this.willThrow = is.inRange(value, range) || this.willThrow;
 
     return this;
   }
@@ -1314,6 +1322,7 @@ export class AssertOrBoom {
    * @returns itself to be chained with an error or with other check
    */
   public isEmpty(value: any): this {
+    // @ts-ignore
     this.willThrow = !is.empty(value) || this.willThrow;
 
     return this;
@@ -1325,6 +1334,7 @@ export class AssertOrBoom {
    * @returns itself to be chained with an error or with other check
    */
   public isNotEmpty(value: any): this {
+    // @ts-ignore
     this.willThrow = is.empty(value) || this.willThrow;
 
     return this;
@@ -1336,6 +1346,7 @@ export class AssertOrBoom {
    * @returns itself to be chained with an error or with other check
    */
   public isEmptyOrWhitespace(value: any): this {
+    // @ts-ignore
     this.willThrow = !is.emptyOrWhitespace(value) || this.willThrow;
 
     return this;
@@ -1347,6 +1358,7 @@ export class AssertOrBoom {
    * @returns itself to be chained with an error or with other check
    */
   public isNotEmptyOrWhitespace(value: any): this {
+    // @ts-ignore
     this.willThrow = is.emptyOrWhitespace(value) || this.willThrow;
 
     return this;
@@ -1396,6 +1408,10 @@ export class AssertOrBoom {
     return this;
   }
 
+  //-----------
+  // OR METHODS
+  //-----------
+
   /**
    * Throw a Bad Request boom error if shouldThrow is true
    * @param message the error message
@@ -1418,6 +1434,7 @@ export class AssertOrBoom {
     if (this.willThrow) {
       this.willThrow = false;
 
+      // @ts-ignore
       throw boom.unauthorized(message, payload);
     }
   }
@@ -1649,11 +1666,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orMisdirectedRequest(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.misdirectedRequest(message, payload);
-    }
+    return this.orBoom(CODES.MISDIRECTED_REQUEST, message, payload);
   }
 
   /**
@@ -1662,11 +1675,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orUnprocessableEntity(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.unprocessableEntity(message, payload);
-    }
+    return this.orBoom(CODES.UNPROCESSABLE_ENTITY, message, payload);
   }
 
   /**
@@ -1701,11 +1710,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orUnorderedCollection(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.unorderedCollection(message, payload);
-    }
+    return this.orBoom(CODES.UNORDERED_COLLECTION, message, payload);
   }
 
   /**
@@ -1714,11 +1719,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orUpgradeRequired(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.upgradeRequired(message, payload);
-    }
+    return this.orBoom(CODES.UPGRADE_REQUIRED, message, payload);
   }
 
   /**
@@ -1753,11 +1754,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orRequestHeaderFieldsTooLarge(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.requestHeaderFieldsTooLarge(message, payload);
-    }
+    return this.orBoom(CODES.REQUEST_HEADERS_FIELDS_TOO_LARGE, message, payload);
   }
 
   /**
@@ -1769,7 +1766,7 @@ export class AssertOrBoom {
     if (this.willThrow) {
       this.willThrow = false;
 
-      throw boom.unavailableForLegalReasons(message, payload);
+      throw boom.illegal(message, payload);
     }
   }
 
@@ -1821,7 +1818,7 @@ export class AssertOrBoom {
     if (this.willThrow) {
       this.willThrow = false;
 
-      throw boom.serviceUnavailable(message, payload);
+      throw boom.serverUnavailable(message, payload);
     }
   }
 
@@ -1844,11 +1841,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orHttpVersionNotSupported(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.httpVersionNotSupported(message, payload);
-    }
+    return this.orBoom(CODES.HTTP_VERSION_NOT_SUPPORTED, message, payload);
   }
 
   /**
@@ -1857,11 +1850,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orVariantAlsoNegotiates(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.variantAlsoNegotiates(message, payload);
-    }
+    return this.orBoom(CODES.VARIANT_ALSO_NEGOTIATE, message, payload);
   }
 
   /**
@@ -1870,11 +1859,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orInsufficientStorage(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.insufficientStorage(message, payload);
-    }
+    return this.orBoom(CODES.INSUFFICIENT_STORAGE, message, payload);
   }
 
   /**
@@ -1883,11 +1868,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orLoopDetected(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.loopDetected(message, payload);
-    }
+    return this.orBoom(CODES.LOOP_DETECTED, message, payload);
   }
 
   /**
@@ -1896,11 +1877,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orBandwidthLimitExceeded(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.bandwidthLimitExceeded(message, payload);
-    }
+    return this.orBoom(CODES.BANDWIDTH_LIMIT_EXCEEDED, message, payload);
   }
 
   /**
@@ -1909,11 +1886,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orNotExtended(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.notExtended(message, payload);
-    }
+    return this.orBoom(CODES.NOT_EXTENDED, message, payload);
   }
 
   /**
@@ -1922,11 +1895,7 @@ export class AssertOrBoom {
    * @param payload data to debug this error
    */
   public orNetworkAuthenticationRequired(message?: string, payload?: object): void {
-    if (this.willThrow) {
-      this.willThrow = false;
-
-      throw boom.networkAuthenticationRequired(message, payload);
-    }
+    return this.orBoom(CODES.NETWORK_AUTHENTIFICATION_REQUIRED, message, payload);
   }
 }
 
