@@ -14,7 +14,7 @@
     "precommit": "lint-staged",
     "prepublish": "npm run build && rm -fr dist/tests",
     "pretest": "npm run lint && npm run build",
-    "prettier": "prettier --write \"{src,test}/**/*.ts\" \"{doc/**/,}*.md\" \"*.json\"",
+    "prettier": "prettier --write \"{src,test}/**/*.ts\" \"{doc/**/,doc/,}*.md\" \"*.json\"",
     "test": "ava dist/test"
   },
   "repository": {
@@ -48,8 +48,8 @@
     "{src,test}/**/*.ts": [
       "prettier --list-different \"{src,test}/**/*.ts\""
     ],
-    "{doc/,}*.md": [
-      "prettier --list-different \"doc/**/*.md\""
+    "{doc/**/,doc/,}*.md": [
+      "prettier --list-different \"{doc/**/,doc/,}*.md\""
     ],
     "*.json": [
       "prettier --list-different \"*.json\""
