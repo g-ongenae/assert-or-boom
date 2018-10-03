@@ -24,7 +24,6 @@
     "object-literal-sort-keys": true,
     "ordered-imports": true,
     "cyclomatic-complexity": true,
-    "max-file-line-count": [true, 500],
     "only-arrow-functions": false,
     "no-invalid-this": true,
     "no-magic-numbers": true,
