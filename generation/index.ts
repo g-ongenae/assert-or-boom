@@ -99,64 +99,64 @@ export class Writer {
 
   private writeStart(): string {
     return `
-            import is from '@sindresorhus/is';
-            import * as boom from 'boom';
-            import {CODES} from 'magic-http-status';
+import is from '@sindresorhus/is';
+import * as boom from 'boom';
+import {CODES} from 'magic-http-status';
 
-            interface Bam extends Error {
-                data?: object;
-            }
+interface Bam extends Error {
+    data?: object;
+}
 
-            export class AssertOrBoom {
-                willThrow: boolean;
+export class AssertOrBoom {
+    willThrow: boolean;
 
-                /**
-                 * Thrower
-                 */
-              
-                /**
-                 * orBoom
-                 */
-                public orBoom(code?: number, message?: string, payload?: object): void {
-                  this.assertOrBoom(!this.willThrow, code, message, payload);
-                }
-              
-                /**
-                 * aOrB - Assert or Boom
-                 */
-                public readonly assertOrBoom = (value: any, statusCode?: number, message?: string, payload?: object): void => {
-                  if (!value) {
-                    const code: number | undefined = statusCode || (!!message ? CODES.BAD_REQUEST : undefined);
-                    const errMessage: string = !!message ? message : 'Value is not truthy';
-                    throw new boom(errMessage, {statusCode: code, data: payload});
-                  }
-                };
-              
-                /**
-                 * orBam
-                 */
-                public orBam(message?: string, payload?: object): void {
-                  this.assertOrBam(!this.willThrow, message, payload);
-                }
-              
-                /**
-                 * Assert or Bam
-                 */
-                public readonly assertOrBam = (value: any, message?: string, payload?: object): void => {
-                  if (!value) {
-                    const errMessage: string = !!message ? message : 'Value is not truthy';
-                    const error: Bam = new Error(errMessage);
-                    error.data = payload;
-                    throw error;
-                  }
-                };
+    /**
+     * Thrower
+     */
+    
+    /**
+     * orBoom
+     */
+    public orBoom(code?: number, message?: string, payload?: object): void {
+        this.assertOrBoom(!this.willThrow, code, message, payload);
+    }
+    
+    /**
+     * aOrB - Assert or Boom
+     */
+    public readonly assertOrBoom = (value: any, statusCode?: number, message?: string, payload?: object): void => {
+        if (!value) {
+        const code: number | undefined = statusCode || (!!message ? CODES.BAD_REQUEST : undefined);
+        const errMessage: string = !!message ? message : 'Value is not truthy';
+        throw new boom(errMessage, {statusCode: code, data: payload});
+        }
+    };
+    
+    /**
+     * orBam
+     */
+    public orBam(message?: string, payload?: object): void {
+        this.assertOrBam(!this.willThrow, message, payload);
+    }
+    
+    /**
+     * Assert or Bam
+     */
+    public readonly assertOrBam = (value: any, message?: string, payload?: object): void => {
+        if (!value) {
+        const errMessage: string = !!message ? message : 'Value is not truthy';
+        const error: Bam = new Error(errMessage);
+        error.data = payload;
+        throw error;
+        }
+    };
         `;
   }
 
   private writeEnd(): string {
     return `}
         
-        export default new AssertOrBoom().assertOrBoom;
+export default new AssertOrBoom().assertOrBoom;
         `;
   }
 
@@ -166,18 +166,18 @@ export class Writer {
 
   private writeOr(name: string): string {
     return `
-            /**
-             * Throw a ${name} boom error if shouldThrow is true
-             * @param message the error message
-             * @param payload data to debug this error
-             */
-            public or${toPascalCase(name)}(message?: string, payload?: object): void {
-                if (this.willThrow) {
-                    this.willThrow = false;
+    /**
+     * Throw a ${name} boom error if willThrow is true
+     * @param message the error message
+     * @param payload data to debug this error
+     */
+    public or${toPascalCase(name)}(message?: string, payload?: object): void {
+        if (this.willThrow) {
+            this.willThrow = false;
 
-                    throw boom.${toFirstLowerCase(name)}(message, payload);
-                }
-            }
+            throw boom.${toFirstLowerCase(name)}(message, payload);
+        }
+    }
         `;
   }
 
@@ -185,79 +185,79 @@ export class Writer {
     const funcName: string = toPascalCase(name);
 
     const content: string = `
-            import test, {Assertions, beforeEach} from 'ava';
-            import * as boom from 'boom';
-            import {CODES} from 'magic-http-status';
+import test, {Assertions, beforeEach} from 'ava';
+import * as boom from 'boom';
+import {CODES} from 'magic-http-status';
 
-            import { AssertOrBoom } from '../src/index';
+import { AssertOrBoom } from '../../src/index';
 
-            let assert: AssertOrBoom;
+let assert: AssertOrBoom;
 
-            beforeEach('Instantiate an AssertOrBoom object', () => {
-                assert = new AssertOrBoom();
-            });
+beforeEach('Instantiate an AssertOrBoom object', () => {
+    assert = new AssertOrBoom();
+});
 
-            test('should not throw an error when willThrow is not set to true', (t: Assertions) => {
-                assert.willThrow = false;
-                t.notThrows(assert.or${funcName}());
-            });
+test('should not throw an error when willThrow is not set to true', (t: Assertions) => {
+    assert.willThrow = false;
+    t.notThrows(assert.or${funcName}());
+});
 
-            test('should throw an error when willThrow is set to true', (t: Assertions) => {
-                assert.willThrow = true;
-                t.throws(() => assert.or${funcName}());
-            });
+test('should throw an error when willThrow is set to true', (t: Assertions) => {
+    assert.willThrow = true;
+    t.throws(() => assert.or${funcName}());
+});
 
-            test('should throw a Boom Error', (t: Assertions) => {
-                assert.willThrow = true;
-                try {
-                    assert.or${funcName}();
-                    t.fail("Didn't throw an error");
-                } catch (err) {
-                    t.truthy(boom.isBoom(err));
-                }
-            });
+test('should throw a Boom Error', (t: Assertions) => {
+    assert.willThrow = true;
+    try {
+        assert.or${funcName}();
+        t.fail("Didn't throw an error");
+    } catch (err) {
+        t.truthy(boom.isBoom(err));
+    }
+});
 
-            test('should pass payload', (t: Assertions) => {
-                const payload: object = { example: true, instance: 1 };
-                assert.willThrow = true;
-                try {
-                    assert.or${funcName}(payload);
-                    t.fail("Didn't throw an error");
-                } catch (err) {
-                    t.is(err.output.payload, payload);
-                }
-            });
+test('should pass payload', (t: Assertions) => {
+    const payload: object = { example: true, instance: 1 };
+    assert.willThrow = true;
+    try {
+        assert.or${funcName}(payload);
+        t.fail("Didn't throw an error");
+    } catch (err) {
+        t.is(err.output.payload, payload);
+    }
+});
 
-            test('should pass message', (t: Assertions) => {
-                const message: string = 'a message for test';
-                assert.willThrow = true;
-                try {
-                    assert.or${funcName}(message);
-                    t.fail("Didn't throw an error");
-                } catch (err) {
-                    t.is(err.output.message, message);
-                }
-            });
+test('should pass message', (t: Assertions) => {
+    const message: string = 'a message for test';
+    assert.willThrow = true;
+    try {
+        assert.or${funcName}(message);
+        t.fail("Didn't throw an error");
+    } catch (err) {
+        t.is(err.output.message, message);
+    }
+});
 
-            test('should throw a "${name}" error code', (t: Assertions) => {
-                assert.willThrow = true;
-                try {
-                    assert.or${funcName}();
-                    t.fail("Didn't throw an error");
-                } catch (err) {
-                    t.is(err.output.statusCode, CODES.${name.replace(/\s/ig, '_').toUpperCase()});
-                }                
-            });
+test('should throw a "${name}" error code', (t: Assertions) => {
+    assert.willThrow = true;
+    try {
+        assert.or${funcName}();
+        t.fail("Didn't throw an error");
+    } catch (err) {
+        t.is(err.output.statusCode, CODES.${name.replace(/\s/ig, '_').toUpperCase()});
+    }                
+});
 
-            test('should throw a "${name}" error message when not set', (t: Assertions) => {
-                assert.willThrow = true;
-                try {
-                    assert.or${funcName}();
-                    t.fail("Didn't throw an error");
-                } catch (err) {
-                    t.is(err.output.message, "${name}");
-                }                
-            });
+test('should throw a "${name}" error message when not set', (t: Assertions) => {
+    assert.willThrow = true;
+    try {
+        assert.or${funcName}();
+        t.fail("Didn't throw an error");
+    } catch (err) {
+        t.is(err.output.message, "${name}");
+    }                
+});
         `;
 
     return writeFile(`${this.baseDir}/test/or/or${funcName}.test.ts`, content);
@@ -266,29 +266,29 @@ export class Writer {
   private writeOrDoc(name: string): Promise<void> {
     const funcName: string = firstLetterUpperCase(name);
     const content: string = `
-            # or${funcName}
+# or${funcName}
 
-            Throw a Boom.${name} if the previous assertions where false.
+Throw a Boom.${name} if the previous assertions where false.
 
-            ## Skeleton
+## Skeleton
 
-            \`\`\`ts
-            assert.or${funcName}(message, payload);
-            \`\`\`
+\`\`\`ts
+assert.or${funcName}(message, payload);
+\`\`\`
 
-            ## Arguments
+## Arguments
 
-            - \`message\` a specific message for this error;
-            - \`payload\` some data to throw with the error;
+- \`message\` a specific message for this error;
+- \`payload\` some data to throw with the error;
 
-            ## Import and use
+## Import and use
 
-            \`\`\`ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+\`\`\`ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.isString(undefined).or${funcName}('Badaboom');
-            \`\`\`
+assert.isString(undefined).or${funcName}('Badaboom');
+\`\`\`
         `;
 
     return writeFile(`${this.baseDir}/doc/or/or${funcName}.md`, content);
@@ -317,59 +317,59 @@ export class Writer {
     const funcName: string = firstLetterUpperCase(name);
 
     const content: string = `
-            import test, {Assertions, beforeEach} from 'ava';
+import test, {Assertions, beforeEach} from 'ava';
 
-            import {AssertOrBoom} from '../src/index';
+import {AssertOrBoom} from '../../src/index';
 
-            let assert: AssertOrBoom;
+let assert: AssertOrBoom;
 
-            beforeEach('Instantiate an AssertOrBoom object', () => {
-                assert = new AssertOrBoom();
-            });
-              
-            test('should not set willThrow to true if value is valid', (t: Assertions) => {
-                const valuesToTest: any[] = [
-                    // TODO ADD VALUES
-                ];
-                
-                for (const value of valuesToTest) {
-                    assert.is${funcName}(value);
-                    t.false(assert.shouldThrow);
-                }
-            });
-              
-            test('should set shouldThrow to true if value is invalid', (t: Assertions) => {
-                const valuesToTest: any[] = [
-                    // TODO ADD VALUES
-                ];
-                
-                for (const value of valuesToTest) {
-                    assert.shouldThrow = false; // reset
-                    assert.is${funcName}(value);
-                    t.true(assert.willThrow);
-                }
-            });
+beforeEach('Instantiate an AssertOrBoom object', () => {
+    assert = new AssertOrBoom();
+});
+    
+test('should not set willThrow to true if value is valid', (t: Assertions) => {
+    const valuesToTest: any[] = [
+        // TODO ADD VALUES
+    ];
+    
+    for (const value of valuesToTest) {
+        assert.is${funcName}(value);
+        t.false(assert.willThrow);
+    }
+});
+    
+test('should set willThrow to true if value is invalid', (t: Assertions) => {
+    const valuesToTest: any[] = [
+        // TODO ADD VALUES
+    ];
+    
+    for (const value of valuesToTest) {
+        assert.willThrow = false; // reset
+        assert.is${funcName}(value);
+        t.true(assert.willThrow);
+    }
+});
 
-            test('should be chainable', (t: Assertions) => {
-                const invalid: any = 'invalid';
-                const valid: any = 'valid';
+test('should be chainable', (t: Assertions) => {
+    const invalid: any = 'invalid';
+    const valid: any = 'valid';
 
-                assert.shouldThrow = false; // reset
-                assert.is${funcName}(invalid).is${funcName}(valid);
-                t.true(assert.willThrow);
+    assert.willThrow = false; // reset
+    assert.is${funcName}(invalid).is${funcName}(valid);
+    t.true(assert.willThrow);
 
-                assert.shouldThrow = false; // reset
-                assert.is${funcName}(valid).is${funcName}(invalid);
-                t.true(assert.willThrow);
+    assert.willThrow = false; // reset
+    assert.is${funcName}(valid).is${funcName}(invalid);
+    t.true(assert.willThrow);
 
-                assert.shouldThrow = false; // reset
-                assert.is${funcName}(invalid).is${funcName}(invalid);
-                t.true(assert.willThrow);
+    assert.willThrow = false; // reset
+    assert.is${funcName}(invalid).is${funcName}(invalid);
+    t.true(assert.willThrow);
 
-                assert.shouldThrow = false; // reset
-                assert.is${funcName}(valid).is${funcName}(valid);
-                t.false(assert.willThrow);
-            });
+    assert.willThrow = false; // reset
+    assert.is${funcName}(valid).is${funcName}(valid);
+    t.false(assert.willThrow);
+});
         `;
 
     return writeFile(`${this.baseDir}/test/is/is${funcName}.test.ts`, content);
@@ -378,28 +378,28 @@ export class Writer {
   private writeIsDoc(name: string): Promise<void> {
     const funcName: string = firstLetterUpperCase(name);
     const content: string = `
-            # is${funcName}
+# is${funcName}
 
-            Check if a value is a valid ${name}.
+Check if a value is a valid ${name}.
 
-            ## Skeleton
+## Skeleton
 
-            \`\`\`ts
-            assert.is${funcName}(value)
-            \`\`\`
+\`\`\`ts
+assert.is${funcName}(value)
+\`\`\`
 
-            ## Arguments
+## Arguments
 
-            - \`value\` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
+- \`value\` anything, if it's a valid value, it will not throw when a [or](../or.md) method is called;
 
-            ## Import and use
+## Import and use
 
-            \`\`\`ts
-            import { AssertOrBoom } from 'assert-or-boom';
-            const assert: AssertOrBoom = new AssertOrBoom();
+\`\`\`ts
+import { AssertOrBoom } from 'assert-or-boom';
+const assert: AssertOrBoom = new AssertOrBoom();
 
-            assert.is${funcName}(undefined).orBoom('Badaboom');
-            \`\`\`
+assert.is${funcName}(undefined).orBoom('Badaboom');
+\`\`\`
         `;
 
     return writeFile(`${this.baseDir}/doc/is/is${funcName}.md`, content);
@@ -407,16 +407,16 @@ export class Writer {
 
   private writeIsNot(name: string): string {
     return `
-            /**
-             * Check is not a ${name} valid value
-             * @param value the value to check
-             * @returns itself to be chained with an error or with other check
-             */
-            public isNot${firstLetterUpperCase(name)}(value: any): this {
-                this.willThrow = is.${name}(value) || this.willThrow;
+    /**
+     * Check is not a ${name} valid value
+     * @param value the value to check
+     * @returns itself to be chained with an error or with other check
+     */
+    public isNot${firstLetterUpperCase(name)}(value: any): this {
+        this.willThrow = is.${name}(value) || this.willThrow;
 
-                return this;
-            }
+        return this;
+    }
         `;
   }
 
@@ -424,59 +424,59 @@ export class Writer {
     const funcName: string = firstLetterUpperCase(name);
 
     const content: string = `
-            import test, {Assertions, beforeEach} from 'ava';
+import test, {Assertions, beforeEach} from 'ava';
 
-            import {AssertOrBoom} from '../src/index';
+import {AssertOrBoom} from '../../src/index';
 
-            let assert: AssertOrBoom;
+let assert: AssertOrBoom;
 
-            beforeEach('Instantiate an AssertOrBoom object', () => {
-                assert = new AssertOrBoom();
-            });
-              
-            test('should set willThrow to true if value is valid', (t: Assertions) => {
-                const valuesToTest: any[] = [
-                    // TODO ADD VALUES
-                ];
-                
-                for (const value of valuesToTest) {
-                    assert.isNot${funcName}(value);
-                    t.false(assert.shouldThrow);
-                }
-            });
-              
-            test('should not set shouldThrow to true if value is invalid', (t: Assertions) => {
-                const valuesToTest: any[] = [
-                    // TODO ADD VALUES
-                ];
-                
-                for (const value of valuesToTest) {
-                    assert.shouldThrow = false; // reset
-                    assert.isNot${funcName}(value);
-                    t.true(assert.willThrow);
-                }
-            });  
-            
-            test('should be chainable', (t: Assertions) => {
-                const invalid: any = 'invalid';
-                const valid: any = 'valid';
+beforeEach('Instantiate an AssertOrBoom object', () => {
+    assert = new AssertOrBoom();
+});
+    
+test('should set willThrow to true if value is valid', (t: Assertions) => {
+    const valuesToTest: any[] = [
+        // TODO ADD VALUES
+    ];
+    
+    for (const value of valuesToTest) {
+        assert.isNot${funcName}(value);
+        t.false(assert.willThrow);
+    }
+});
+    
+test('should not set willThrow to true if value is invalid', (t: Assertions) => {
+    const valuesToTest: any[] = [
+        // TODO ADD VALUES
+    ];
+    
+    for (const value of valuesToTest) {
+        assert.willThrow = false; // reset
+        assert.isNot${funcName}(value);
+        t.true(assert.willThrow);
+    }
+});  
 
-                assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(invalid).isNot${funcName}(valid);
-                t.true(assert.willThrow);
+test('should be chainable', (t: Assertions) => {
+    const invalid: any = 'invalid';
+    const valid: any = 'valid';
 
-                assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(valid).isNot${funcName}(invalid);
-                t.true(assert.willThrow);
+    assert.willThrow = false; // reset
+    assert.isNot${funcName}(invalid).isNot${funcName}(valid);
+    t.true(assert.willThrow);
 
-                assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(invalid).isNot${funcName}(invalid);
-                t.true(assert.willThrow);
+    assert.willThrow = false; // reset
+    assert.isNot${funcName}(valid).isNot${funcName}(invalid);
+    t.true(assert.willThrow);
 
-                assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(valid).isNot${funcName}(valid);
-                t.false(assert.willThrow);
-            });
+    assert.willThrow = false; // reset
+    assert.isNot${funcName}(invalid).isNot${funcName}(invalid);
+    t.true(assert.willThrow);
+
+    assert.willThrow = false; // reset
+    assert.isNot${funcName}(valid).isNot${funcName}(valid);
+    t.false(assert.willThrow);
+});
         `;
 
     return writeFile(`${this.baseDir}/test/isNot/isNot${funcName}.test.ts`, content);
