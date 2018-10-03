@@ -355,20 +355,20 @@ export class Writer {
                 const valid: any = 'valid';
 
                 assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(invalid).isNot${funcName}(valid);
+                assert.is${funcName}(invalid).is${funcName}(valid);
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(valid).isNot${funcName}(invalid);
+                assert.is${funcName}(valid).is${funcName}(invalid);
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(invalid).isNot${funcName}(invalid);
+                assert.is${funcName}(invalid).is${funcName}(invalid);
                 t.true(assert.willThrow);
 
                 assert.shouldThrow = false; // reset
-                assert.isNot${funcName}(valid).isNot${funcName}(valid);
-                t.true(assert.willThrow);
+                assert.is${funcName}(valid).is${funcName}(valid);
+                t.false(assert.willThrow);
             });
         `;
 
@@ -475,7 +475,7 @@ export class Writer {
 
                 assert.shouldThrow = false; // reset
                 assert.isNot${funcName}(valid).isNot${funcName}(valid);
-                t.true(assert.willThrow);
+                t.false(assert.willThrow);
             });
         `;
 
