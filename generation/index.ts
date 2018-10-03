@@ -50,11 +50,12 @@ export class Writer {
         if (key.includes('_')) {
             key = key.substring(0, key.length - 1);
         }
+        const name: string = firstLetterUpperCase(key);
 
         methods.push(this.writeIs(key));
         methods.push(this.writeIsNot(key));
-        methods.push(`- is${firstLetterUpperCase(key)}`);
-        methods.push(`- isNot${firstLetterUpperCase(key)}`);
+        methodsDocsIs.push(`- [is${name}](./is/is${name})`);
+        methodsDocsIsNot.push(`- [isNot${name}](./isNot/isNot${name})`);
         await this.writeIsDoc(key);
         await this.writeIsNotDoc(key);
         await this.writeIsTest(key);
@@ -79,8 +80,10 @@ export class Writer {
             key = key.replace("'", '');
         }
 
+        const name: string = toPascalCase(key);
+
         methods.push(this.writeOr(key));
-        methodsDocs.push(`or${toPascalCase(key)}`);
+        methodsDocs.push(`- [or${name}](./or/or${name})`);
         await this.writeOrDoc(key);
         await this.writeOrTest(key);
     });
