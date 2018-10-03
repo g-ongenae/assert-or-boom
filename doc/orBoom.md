@@ -1,4 +1,4 @@
-# orBadGateway
+# orBoom
 
 Throw a Boom Error if the previous assertions were false.
 
