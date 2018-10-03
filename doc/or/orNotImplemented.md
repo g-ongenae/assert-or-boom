@@ -1,6 +1,6 @@
 # orNotImplemented
 
-Throw a Boom.Not Implemented if the previous assertions where false.
+Throw a Boom.Not Implemented if the previous assertions were false.
 
 ## Skeleton
 

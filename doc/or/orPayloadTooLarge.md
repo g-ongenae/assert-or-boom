@@ -1,6 +1,6 @@
 # orPayloadTooLarge
 
-Throw a Boom.Payload Too Large if the previous assertions where false.
+Throw a Boom.Payload Too Large if the previous assertions were false.
 
 ## Skeleton
 

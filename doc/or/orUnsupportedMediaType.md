@@ -1,6 +1,6 @@
 # orUnsupportedMediaType
 
-Throw a Boom.Unsupported Media Type if the previous assertions where false.
+Throw a Boom.Unsupported Media Type if the previous assertions were false.
 
 ## Skeleton
 

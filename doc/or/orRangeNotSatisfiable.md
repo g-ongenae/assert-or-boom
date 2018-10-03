@@ -1,6 +1,6 @@
 # orRangeNotSatisfiable
 
-Throw a Boom.Range Not Satisfiable if the previous assertions where false.
+Throw a Boom.Range Not Satisfiable if the previous assertions were false.
 
 ## Skeleton
 

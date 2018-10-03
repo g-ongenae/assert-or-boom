@@ -1,6 +1,6 @@
 # orUnprocessableEntity
 
-Throw a Boom.Unprocessable Entity if the previous assertions where false.
+Throw a Boom.Unprocessable Entity if the previous assertions were false.
 
 ## Skeleton
 

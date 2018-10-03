@@ -1,6 +1,6 @@
 # orExpectationFailed
 
-Throw a Boom.Expectation Failed if the previous assertions where false.
+Throw a Boom.Expectation Failed if the previous assertions were false.
 
 ## Skeleton
 

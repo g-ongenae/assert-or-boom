@@ -1,6 +1,6 @@
 # orProxyAuthenticationRequired
 
-Throw a Boom.Proxy Authentication Required if the previous assertions where false.
+Throw a Boom.Proxy Authentication Required if the previous assertions were false.
 
 ## Skeleton
 

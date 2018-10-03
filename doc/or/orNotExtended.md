@@ -1,6 +1,6 @@
 # orNotExtended
 
-Throw a Boom.Not Extended if the previous assertions where false.
+Throw a Boom.Not Extended if the previous assertions were false.
 
 ## Skeleton
 

@@ -1,6 +1,6 @@
 # orFailedDependency
 
-Throw a Boom.Failed Dependency if the previous assertions where false.
+Throw a Boom.Failed Dependency if the previous assertions were false.
 
 ## Skeleton
 

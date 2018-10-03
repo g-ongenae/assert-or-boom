@@ -1,6 +1,6 @@
 # orTooManyRequests
 
-Throw a Boom.Too Many Requests if the previous assertions where false.
+Throw a Boom.Too Many Requests if the previous assertions were false.
 
 ## Skeleton
 

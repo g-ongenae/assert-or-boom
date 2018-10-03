@@ -1,6 +1,6 @@
 # orPreconditionRequired
 
-Throw a Boom.Precondition Required if the previous assertions where false.
+Throw a Boom.Precondition Required if the previous assertions were false.
 
 ## Skeleton
 

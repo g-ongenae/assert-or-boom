@@ -1,6 +1,6 @@
 # orLengthRequired
 
-Throw a Boom.Length Required if the previous assertions where false.
+Throw a Boom.Length Required if the previous assertions were false.
 
 ## Skeleton
 

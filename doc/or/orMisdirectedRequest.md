@@ -1,6 +1,6 @@
 # orMisdirectedRequest
 
-Throw a Boom.Misdirected Request if the previous assertions where false.
+Throw a Boom.Misdirected Request if the previous assertions were false.
 
 ## Skeleton
 

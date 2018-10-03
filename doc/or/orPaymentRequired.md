@@ -1,6 +1,6 @@
 # orPaymentRequired
 
-Throw a Boom.Payment Required if the previous assertions where false.
+Throw a Boom.Payment Required if the previous assertions were false.
 
 ## Skeleton
 

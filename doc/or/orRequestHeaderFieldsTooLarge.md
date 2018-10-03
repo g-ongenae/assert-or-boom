@@ -1,6 +1,6 @@
 # orRequestHeaderFieldsTooLarge
 
-Throw a Boom.Request Header Fields Too Large if the previous assertions where false.
+Throw a Boom.Request Header Fields Too Large if the previous assertions were false.
 
 ## Skeleton
 

@@ -1,6 +1,6 @@
 # orLoopDetected
 
-Throw a Boom.Loop Detected if the previous assertions where false.
+Throw a Boom.Loop Detected if the previous assertions were false.
 
 ## Skeleton
 

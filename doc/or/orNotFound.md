@@ -1,6 +1,6 @@
 # orNotFound
 
-Throw a Boom.Not Found if the previous assertions where false.
+Throw a Boom.Not Found if the previous assertions were false.
 
 ## Skeleton
 

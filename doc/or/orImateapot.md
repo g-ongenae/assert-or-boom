@@ -1,6 +1,6 @@
 # orImateapot
 
-Throw a Boom.Im a teapot if the previous assertions where false.
+Throw a Boom.Im a teapot if the previous assertions were false.
 
 ## Skeleton
 

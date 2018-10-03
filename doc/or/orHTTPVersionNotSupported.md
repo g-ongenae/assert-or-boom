@@ -1,6 +1,6 @@
 # orHTTPVersionNotSupported
 
-Throw a Boom.HTTP Version Not Supported if the previous assertions where false.
+Throw a Boom.HTTP Version Not Supported if the previous assertions were false.
 
 ## Skeleton
 

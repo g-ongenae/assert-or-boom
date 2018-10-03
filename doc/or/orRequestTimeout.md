@@ -1,6 +1,6 @@
 # orRequestTimeout
 
-Throw a Boom.Request Timeout if the previous assertions where false.
+Throw a Boom.Request Timeout if the previous assertions were false.
 
 ## Skeleton
 

@@ -1,6 +1,6 @@
 # orForbidden
 
-Throw a Boom.Forbidden if the previous assertions where false.
+Throw a Boom.Forbidden if the previous assertions were false.
 
 ## Skeleton
 

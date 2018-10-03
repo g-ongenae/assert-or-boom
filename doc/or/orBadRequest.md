@@ -1,6 +1,6 @@
 # orBadRequest
 
-Throw a Boom.Bad Request if the previous assertions where false.
+Throw a Boom.Bad Request if the previous assertions were false.
 
 ## Skeleton
 

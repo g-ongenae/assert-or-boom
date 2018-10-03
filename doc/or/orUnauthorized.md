@@ -1,6 +1,6 @@
 # orUnauthorized
 
-Throw a Boom.Unauthorized if the previous assertions where false.
+Throw a Boom.Unauthorized if the previous assertions were false.
 
 ## Skeleton
 

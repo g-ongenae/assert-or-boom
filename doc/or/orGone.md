@@ -1,6 +1,6 @@
 # orGone
 
-Throw a Boom.Gone if the previous assertions where false.
+Throw a Boom.Gone if the previous assertions were false.
 
 ## Skeleton
 

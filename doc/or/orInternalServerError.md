@@ -1,6 +1,6 @@
 # orInternalServerError
 
-Throw a Boom.Internal Server Error if the previous assertions where false.
+Throw a Boom.Internal Server Error if the previous assertions were false.
 
 ## Skeleton
 

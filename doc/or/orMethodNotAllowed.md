@@ -1,6 +1,6 @@
 # orMethodNotAllowed
 
-Throw a Boom.Method Not Allowed if the previous assertions where false.
+Throw a Boom.Method Not Allowed if the previous assertions were false.
 
 ## Skeleton
 

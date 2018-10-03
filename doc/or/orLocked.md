@@ -1,6 +1,6 @@
 # orLocked
 
-Throw a Boom.Locked if the previous assertions where false.
+Throw a Boom.Locked if the previous assertions were false.
 
 ## Skeleton
 

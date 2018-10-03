@@ -1,6 +1,6 @@
 # orUnavailableForLegalReasons
 
-Throw a Boom.Unavailable For Legal Reasons if the previous assertions where false.
+Throw a Boom.Unavailable For Legal Reasons if the previous assertions were false.
 
 ## Skeleton
 

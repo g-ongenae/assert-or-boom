@@ -1,6 +1,6 @@
 # orBadGateway
 
-Throw a Boom.Bad Gateway if the previous assertions where false.
+Throw a Boom.Bad Gateway if the previous assertions were false.
 
 ## Skeleton
 

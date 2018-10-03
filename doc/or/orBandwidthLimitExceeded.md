@@ -1,6 +1,6 @@
 # orBandwidthLimitExceeded
 
-Throw a Boom.Bandwidth Limit Exceeded if the previous assertions where false.
+Throw a Boom.Bandwidth Limit Exceeded if the previous assertions were false.
 
 ## Skeleton
 

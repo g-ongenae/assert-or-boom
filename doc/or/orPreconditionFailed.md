@@ -1,6 +1,6 @@
 # orPreconditionFailed
 
-Throw a Boom.Precondition Failed if the previous assertions where false.
+Throw a Boom.Precondition Failed if the previous assertions were false.
 
 ## Skeleton
 

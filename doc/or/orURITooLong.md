@@ -1,6 +1,6 @@
 # orURITooLong
 
-Throw a Boom.URI Too Long if the previous assertions where false.
+Throw a Boom.URI Too Long if the previous assertions were false.
 
 ## Skeleton
 

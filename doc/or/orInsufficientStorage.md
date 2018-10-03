@@ -1,6 +1,6 @@
 # orInsufficientStorage
 
-Throw a Boom.Insufficient Storage if the previous assertions where false.
+Throw a Boom.Insufficient Storage if the previous assertions were false.
 
 ## Skeleton
 

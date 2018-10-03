@@ -1,6 +1,6 @@
 # orGatewayTimeout
 
-Throw a Boom.Gateway Timeout if the previous assertions where false.
+Throw a Boom.Gateway Timeout if the previous assertions were false.
 
 ## Skeleton
 
