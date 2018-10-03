@@ -5,7 +5,7 @@ Check if a value is a valid nullOrUndefined.
 ## Skeleton
 
 ```ts
-assert.isNullOrUndefined(value)
+assert.isNullOrUndefined(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNullOrUndefined(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNullOrUndefined(undefined).orBoom('Badaboom');

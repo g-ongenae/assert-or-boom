@@ -5,7 +5,7 @@ Check if a value is not a valid int32Array.
 ## Skeleton
 
 ```ts
-assert.isNotInt32Array(value)
+assert.isNotInt32Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotInt32Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotInt32Array(undefined).orBoom('Badaboom');

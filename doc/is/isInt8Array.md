@@ -5,7 +5,7 @@ Check if a value is a valid int8Array.
 ## Skeleton
 
 ```ts
-assert.isInt8Array(value)
+assert.isInt8Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isInt8Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isInt8Array(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is not a valid error.
 ## Skeleton
 
 ```ts
-assert.isNotError(value)
+assert.isNotError(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotError(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotError(undefined).orBoom('Badaboom');

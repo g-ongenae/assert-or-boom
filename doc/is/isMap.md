@@ -5,7 +5,7 @@ Check if a value is a valid map.
 ## Skeleton
 
 ```ts
-assert.isMap(value)
+assert.isMap(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isMap(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isMap(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is a valid promise.
 ## Skeleton
 
 ```ts
-assert.isPromise(value)
+assert.isPromise(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isPromise(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isPromise(undefined).orBoom('Badaboom');

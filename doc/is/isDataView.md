@@ -5,7 +5,7 @@ Check if a value is a valid dataView.
 ## Skeleton
 
 ```ts
-assert.isDataView(value)
+assert.isDataView(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isDataView(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isDataView(undefined).orBoom('Badaboom');

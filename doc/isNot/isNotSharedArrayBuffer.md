@@ -5,7 +5,7 @@ Check if a value is not a valid sharedArrayBuffer.
 ## Skeleton
 
 ```ts
-assert.isNotSharedArrayBuffer(value)
+assert.isNotSharedArrayBuffer(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotSharedArrayBuffer(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotSharedArrayBuffer(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is not a valid plainObject.
 ## Skeleton
 
 ```ts
-assert.isNotPlainObject(value)
+assert.isNotPlainObject(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotPlainObject(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotPlainObject(undefined).orBoom('Badaboom');

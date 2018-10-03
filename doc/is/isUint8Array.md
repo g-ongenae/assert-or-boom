@@ -5,7 +5,7 @@ Check if a value is a valid uint8Array.
 ## Skeleton
 
 ```ts
-assert.isUint8Array(value)
+assert.isUint8Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isUint8Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isUint8Array(undefined).orBoom('Badaboom');

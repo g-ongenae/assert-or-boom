@@ -5,7 +5,7 @@ Check if a value is not a valid infinite.
 ## Skeleton
 
 ```ts
-assert.isNotInfinite(value)
+assert.isNotInfinite(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotInfinite(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotInfinite(undefined).orBoom('Badaboom');

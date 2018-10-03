@@ -5,7 +5,7 @@ Check if a value is not a valid emptyOrWhitespace.
 ## Skeleton
 
 ```ts
-assert.isNotEmptyOrWhitespace(value)
+assert.isNotEmptyOrWhitespace(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotEmptyOrWhitespace(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotEmptyOrWhitespace(undefined).orBoom('Badaboom');

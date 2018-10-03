@@ -5,7 +5,7 @@ Check if a value is a valid directInstanceOf.
 ## Skeleton
 
 ```ts
-assert.isDirectInstanceOf(value)
+assert.isDirectInstanceOf(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isDirectInstanceOf(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isDirectInstanceOf(undefined).orBoom('Badaboom');

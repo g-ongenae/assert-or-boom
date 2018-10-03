@@ -5,7 +5,7 @@ Check if a value is a valid observable.
 ## Skeleton
 
 ```ts
-assert.isObservable(value)
+assert.isObservable(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isObservable(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isObservable(undefined).orBoom('Badaboom');

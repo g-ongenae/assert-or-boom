@@ -5,7 +5,7 @@ Check if a value is not a valid null.
 ## Skeleton
 
 ```ts
-assert.isNotNull(value)
+assert.isNotNull(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotNull(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotNull(undefined).orBoom('Badaboom');

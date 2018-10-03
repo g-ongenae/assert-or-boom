@@ -16,7 +16,7 @@ assert.orImateapot(message, payload);
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isString(undefined).orImateapot('Badaboom');

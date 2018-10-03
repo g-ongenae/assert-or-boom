@@ -5,7 +5,7 @@ Check if a value is not a valid even.
 ## Skeleton
 
 ```ts
-assert.isNotEven(value)
+assert.isNotEven(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotEven(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotEven(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is a valid int16Array.
 ## Skeleton
 
 ```ts
-assert.isInt16Array(value)
+assert.isInt16Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isInt16Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isInt16Array(undefined).orBoom('Badaboom');

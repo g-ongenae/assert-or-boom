@@ -5,7 +5,7 @@ Check if a value is not a valid date.
 ## Skeleton
 
 ```ts
-assert.isNotDate(value)
+assert.isNotDate(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotDate(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotDate(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is a valid inRange.
 ## Skeleton
 
 ```ts
-assert.isInRange(value)
+assert.isInRange(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isInRange(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isInRange(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is not a valid float32Array.
 ## Skeleton
 
 ```ts
-assert.isNotFloat32Array(value)
+assert.isNotFloat32Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotFloat32Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotFloat32Array(undefined).orBoom('Badaboom');

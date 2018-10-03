@@ -5,7 +5,7 @@ Check if a value is not a valid empty.
 ## Skeleton
 
 ```ts
-assert.isNotEmpty(value)
+assert.isNotEmpty(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotEmpty(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotEmpty(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is not a valid undefined.
 ## Skeleton
 
 ```ts
-assert.isNotUndefined(value)
+assert.isNotUndefined(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotUndefined(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotUndefined(undefined).orBoom('Badaboom');

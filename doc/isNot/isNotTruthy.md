@@ -5,7 +5,7 @@ Check if a value is not a valid truthy.
 ## Skeleton
 
 ```ts
-assert.isNotTruthy(value)
+assert.isNotTruthy(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotTruthy(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotTruthy(undefined).orBoom('Badaboom');

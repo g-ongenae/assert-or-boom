@@ -5,7 +5,7 @@ Check if a value is not a valid number.
 ## Skeleton
 
 ```ts
-assert.isNotNumber(value)
+assert.isNotNumber(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotNumber(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotNumber(undefined).orBoom('Badaboom');

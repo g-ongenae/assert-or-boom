@@ -5,7 +5,7 @@ Check if a value is a valid uint32Array.
 ## Skeleton
 
 ```ts
-assert.isUint32Array(value)
+assert.isUint32Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isUint32Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isUint32Array(undefined).orBoom('Badaboom');

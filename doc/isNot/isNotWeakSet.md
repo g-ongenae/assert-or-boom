@@ -5,7 +5,7 @@ Check if a value is not a valid weakSet.
 ## Skeleton
 
 ```ts
-assert.isNotWeakSet(value)
+assert.isNotWeakSet(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotWeakSet(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotWeakSet(undefined).orBoom('Badaboom');

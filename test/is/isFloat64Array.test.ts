@@ -1,6 +1,6 @@
 import test, {Assertions, beforeEach} from 'ava';
 
-import {AssertOrBoom} from '../src/index';
+import {AssertOrBoom} from '../../src/index';
 
 let assert: AssertOrBoom;
 

@@ -5,7 +5,7 @@ Check if a value is a valid nativePromise.
 ## Skeleton
 
 ```ts
-assert.isNativePromise(value)
+assert.isNativePromise(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNativePromise(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNativePromise(undefined).orBoom('Badaboom');

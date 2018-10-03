@@ -5,7 +5,7 @@ Check if a value is not a valid regExp.
 ## Skeleton
 
 ```ts
-assert.isNotRegExp(value)
+assert.isNotRegExp(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotRegExp(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotRegExp(undefined).orBoom('Badaboom');

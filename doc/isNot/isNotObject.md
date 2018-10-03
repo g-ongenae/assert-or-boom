@@ -5,7 +5,7 @@ Check if a value is not a valid object.
 ## Skeleton
 
 ```ts
-assert.isNotObject(value)
+assert.isNotObject(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotObject(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotObject(undefined).orBoom('Badaboom');

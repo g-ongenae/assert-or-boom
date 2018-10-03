@@ -5,7 +5,7 @@ Check if a value is a valid generator.
 ## Skeleton
 
 ```ts
-assert.isGenerator(value)
+assert.isGenerator(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isGenerator(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isGenerator(undefined).orBoom('Badaboom');

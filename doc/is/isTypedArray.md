@@ -5,7 +5,7 @@ Check if a value is a valid typedArray.
 ## Skeleton
 
 ```ts
-assert.isTypedArray(value)
+assert.isTypedArray(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isTypedArray(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isTypedArray(undefined).orBoom('Badaboom');

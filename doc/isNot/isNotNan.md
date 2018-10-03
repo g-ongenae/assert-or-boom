@@ -5,7 +5,7 @@ Check if a value is not a valid nan.
 ## Skeleton
 
 ```ts
-assert.isNotNan(value)
+assert.isNotNan(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotNan(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotNan(undefined).orBoom('Badaboom');

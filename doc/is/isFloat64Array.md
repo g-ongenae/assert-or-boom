@@ -5,7 +5,7 @@ Check if a value is a valid float64Array.
 ## Skeleton
 
 ```ts
-assert.isFloat64Array(value)
+assert.isFloat64Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isFloat64Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isFloat64Array(undefined).orBoom('Badaboom');

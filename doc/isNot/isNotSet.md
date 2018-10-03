@@ -5,7 +5,7 @@ Check if a value is not a valid set.
 ## Skeleton
 
 ```ts
-assert.isNotSet(value)
+assert.isNotSet(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotSet(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotSet(undefined).orBoom('Badaboom');

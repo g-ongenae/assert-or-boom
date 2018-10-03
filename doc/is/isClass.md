@@ -5,7 +5,7 @@ Check if a value is a valid class.
 ## Skeleton
 
 ```ts
-assert.isClass(value)
+assert.isClass(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isClass(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isClass(undefined).orBoom('Badaboom');

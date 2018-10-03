@@ -2,7 +2,7 @@ import test, {Assertions, beforeEach} from 'ava';
 import * as boom from 'boom';
 import {CODES} from 'magic-http-status';
 
-import {AssertOrBoom} from '../src/index';
+import {AssertOrBoom} from '../../src/index';
 
 let assert: AssertOrBoom;
 

@@ -5,7 +5,7 @@ Check if a value is a valid safeInteger.
 ## Skeleton
 
 ```ts
-assert.isSafeInteger(value)
+assert.isSafeInteger(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isSafeInteger(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isSafeInteger(undefined).orBoom('Badaboom');

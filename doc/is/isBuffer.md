@@ -5,7 +5,7 @@ Check if a value is a valid buffer.
 ## Skeleton
 
 ```ts
-assert.isBuffer(value)
+assert.isBuffer(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isBuffer(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isBuffer(undefined).orBoom('Badaboom');

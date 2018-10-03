@@ -5,7 +5,7 @@ Check if a value is a valid weakMap.
 ## Skeleton
 
 ```ts
-assert.isWeakMap(value)
+assert.isWeakMap(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isWeakMap(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isWeakMap(undefined).orBoom('Badaboom');

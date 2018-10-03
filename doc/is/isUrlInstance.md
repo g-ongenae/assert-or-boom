@@ -5,7 +5,7 @@ Check if a value is a valid urlInstance.
 ## Skeleton
 
 ```ts
-assert.isUrlInstance(value)
+assert.isUrlInstance(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isUrlInstance(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isUrlInstance(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is not a valid generatorFunction.
 ## Skeleton
 
 ```ts
-assert.isNotGeneratorFunction(value)
+assert.isNotGeneratorFunction(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotGeneratorFunction(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotGeneratorFunction(undefined).orBoom('Badaboom');

@@ -5,7 +5,7 @@ Check if a value is a valid object.
 ## Skeleton
 
 ```ts
-assert.isObject(value)
+assert.isObject(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isObject(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isObject(undefined).orBoom('Badaboom');

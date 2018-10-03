@@ -5,7 +5,7 @@ Check if a value is not a valid domElement.
 ## Skeleton
 
 ```ts
-assert.isNotDomElement(value)
+assert.isNotDomElement(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotDomElement(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotDomElement(undefined).orBoom('Badaboom');

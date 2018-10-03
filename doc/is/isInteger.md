@@ -5,7 +5,7 @@ Check if a value is a valid integer.
 ## Skeleton
 
 ```ts
-assert.isInteger(value)
+assert.isInteger(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isInteger(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isInteger(undefined).orBoom('Badaboom');

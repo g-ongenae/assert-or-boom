@@ -5,7 +5,7 @@ Check if a value is not a valid odd.
 ## Skeleton
 
 ```ts
-assert.isNotOdd(value)
+assert.isNotOdd(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotOdd(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotOdd(undefined).orBoom('Badaboom');

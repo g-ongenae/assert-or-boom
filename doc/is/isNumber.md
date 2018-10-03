@@ -5,7 +5,7 @@ Check if a value is a valid number.
 ## Skeleton
 
 ```ts
-assert.isNumber(value)
+assert.isNumber(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNumber(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNumber(undefined).orBoom('Badaboom');

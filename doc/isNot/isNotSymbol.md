@@ -5,7 +5,7 @@ Check if a value is not a valid symbol.
 ## Skeleton
 
 ```ts
-assert.isNotSymbol(value)
+assert.isNotSymbol(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotSymbol(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotSymbol(undefined).orBoom('Badaboom');

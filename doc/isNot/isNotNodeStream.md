@@ -5,7 +5,7 @@ Check if a value is not a valid nodeStream.
 ## Skeleton
 
 ```ts
-assert.isNotNodeStream(value)
+assert.isNotNodeStream(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotNodeStream(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotNodeStream(undefined).orBoom('Badaboom');

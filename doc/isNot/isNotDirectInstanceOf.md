@@ -5,7 +5,7 @@ Check if a value is not a valid directInstanceOf.
 ## Skeleton
 
 ```ts
-assert.isNotDirectInstanceOf(value)
+assert.isNotDirectInstanceOf(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotDirectInstanceOf(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotDirectInstanceOf(undefined).orBoom('Badaboom');

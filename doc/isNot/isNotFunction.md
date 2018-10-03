@@ -5,7 +5,7 @@ Check if a value is not a valid function.
 ## Skeleton
 
 ```ts
-assert.isNotFunction(value)
+assert.isNotFunction(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotFunction(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotFunction(undefined).orBoom('Badaboom');

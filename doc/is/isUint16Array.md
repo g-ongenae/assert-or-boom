@@ -5,7 +5,7 @@ Check if a value is a valid uint16Array.
 ## Skeleton
 
 ```ts
-assert.isUint16Array(value)
+assert.isUint16Array(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isUint16Array(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isUint16Array(undefined).orBoom('Badaboom');

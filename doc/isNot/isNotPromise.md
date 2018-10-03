@@ -5,7 +5,7 @@ Check if a value is not a valid promise.
 ## Skeleton
 
 ```ts
-assert.isNotPromise(value)
+assert.isNotPromise(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotPromise(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotPromise(undefined).orBoom('Badaboom');

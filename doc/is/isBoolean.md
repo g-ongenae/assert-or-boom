@@ -5,7 +5,7 @@ Check if a value is a valid boolean.
 ## Skeleton
 
 ```ts
-assert.isBoolean(value)
+assert.isBoolean(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isBoolean(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isBoolean(undefined).orBoom('Badaboom');

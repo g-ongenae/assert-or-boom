@@ -5,7 +5,7 @@ Check if a value is not a valid string.
 ## Skeleton
 
 ```ts
-assert.isNotString(value)
+assert.isNotString(value);
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ assert.isNotString(value)
 ## Import and use
 
 ```ts
-import { AssertOrBoom } from 'assert-or-boom';
+import {AssertOrBoom} from 'assert-or-boom';
 const assert: AssertOrBoom = new AssertOrBoom();
 
 assert.isNotString(undefined).orBoom('Badaboom');
