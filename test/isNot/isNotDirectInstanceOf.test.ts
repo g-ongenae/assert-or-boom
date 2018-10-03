@@ -2,6 +2,18 @@ import test, {Assertions, beforeEach} from 'ava';
 
 import {AssertOrBoom} from '../../src/index';
 
+class TestClass {
+  public willSayTrue: any;
+
+  constructor(value: any) {
+    this.willSayTrue = value;
+  }
+
+  public sayTrue(): boolean {
+    return !!this.willSayTrue;
+  }
+}
+
 let assert: AssertOrBoom;
 
 beforeEach('Instantiate an AssertOrBoom object', () => {
@@ -14,7 +26,7 @@ test('should set willThrow to true if value is valid', (t: Assertions) => {
   ];
 
   for (const value of valuesToTest) {
-    assert.isNotDirectInstanceOf(value);
+    assert.isNotDirectInstanceOf(value, TestClass);
     t.false(assert.willThrow);
   }
 });
@@ -26,7 +38,7 @@ test('should not set willThrow to true if value is invalid', (t: Assertions) => 
 
   for (const value of valuesToTest) {
     assert.willThrow = false; // reset
-    assert.isNotDirectInstanceOf(value);
+    assert.isNotDirectInstanceOf(value, TestClass);
     t.true(assert.willThrow);
   }
 });
@@ -36,18 +48,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(invalid).isNotDirectInstanceOf(valid);
+  assert.isNotDirectInstanceOf(invalid, TestClass).isNotDirectInstanceOf(valid, TestClass);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(valid).isNotDirectInstanceOf(invalid);
+  assert.isNotDirectInstanceOf(valid, TestClass).isNotDirectInstanceOf(invalid, TestClass);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(invalid).isNotDirectInstanceOf(invalid);
+  assert.isNotDirectInstanceOf(invalid, TestClass).isNotDirectInstanceOf(invalid, TestClass);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(valid).isNotDirectInstanceOf(valid);
+  assert.isNotDirectInstanceOf(valid, TestClass).isNotDirectInstanceOf(valid, TestClass);
   t.true(assert.willThrow);
 });

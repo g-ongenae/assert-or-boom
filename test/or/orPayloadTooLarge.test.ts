@@ -12,7 +12,7 @@ beforeEach('Instantiate an AssertOrBoom object', () => {
 
 test('should not throw an error when willThrow is not set to true', (t: Assertions) => {
   assert.willThrow = false;
-  t.notThrows(assert.orPayloadTooLarge());
+  t.notThrows(() => assert.orPayloadTooLarge());
 });
 
 test('should throw an error when willThrow is set to true', (t: Assertions) => {
@@ -34,7 +34,7 @@ test('should pass payload', (t: Assertions) => {
   const payload: object = {example: true, instance: 1};
   assert.willThrow = true;
   try {
-    assert.orPayloadTooLarge(payload);
+    assert.orPayloadTooLarge(undefined, payload);
     t.fail("Didn't throw an error");
   } catch (err) {
     t.is(err.output.payload, payload);

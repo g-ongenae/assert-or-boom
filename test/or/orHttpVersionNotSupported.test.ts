@@ -12,7 +12,7 @@ beforeEach('Instantiate an AssertOrBoom object', () => {
 
 test('should not throw an error when willThrow is not set to true', (t: Assertions) => {
   assert.willThrow = false;
-  t.notThrows(assert.orHttpVersionNotSupported());
+  t.notThrows(() => assert.orHttpVersionNotSupported());
 });
 
 test('should throw an error when willThrow is set to true', (t: Assertions) => {
@@ -34,7 +34,7 @@ test('should pass payload', (t: Assertions) => {
   const payload: object = {example: true, instance: 1};
   assert.willThrow = true;
   try {
-    assert.orHttpVersionNotSupported(payload);
+    assert.orHttpVersionNotSupported(undefined, payload);
     t.fail("Didn't throw an error");
   } catch (err) {
     t.is(err.output.payload, payload);

@@ -2,6 +2,8 @@ import test, {Assertions, beforeEach} from 'ava';
 
 import {AssertOrBoom} from '../../src/index';
 
+const testRange: number[] = [0, 1];
+
 let assert: AssertOrBoom;
 
 beforeEach('Instantiate an AssertOrBoom object', () => {
@@ -14,7 +16,7 @@ test('should set willThrow to true if value is valid', (t: Assertions) => {
   ];
 
   for (const value of valuesToTest) {
-    assert.isNotInRange(value);
+    assert.isNotInRange(value, testRange);
     t.false(assert.willThrow);
   }
 });
@@ -26,7 +28,7 @@ test('should not set willThrow to true if value is invalid', (t: Assertions) => 
 
   for (const value of valuesToTest) {
     assert.willThrow = false; // reset
-    assert.isNotInRange(value);
+    assert.isNotInRange(value, testRange);
     t.true(assert.willThrow);
   }
 });
@@ -36,18 +38,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(invalid).isNotInRange(valid);
+  assert.isNotInRange(invalid, testRange).isNotInRange(valid, testRange);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(valid).isNotInRange(invalid);
+  assert.isNotInRange(valid, testRange).isNotInRange(invalid, testRange);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(invalid).isNotInRange(invalid);
+  assert.isNotInRange(invalid, testRange).isNotInRange(invalid, testRange);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(valid).isNotInRange(valid);
+  assert.isNotInRange(valid, testRange).isNotInRange(valid, testRange);
   t.true(assert.willThrow);
 });
