@@ -9,9 +9,7 @@ beforeEach('Instantiate an AssertOrBoom object', () => {
 });
 
 test('should not set willThrow to true if value is valid', (t: Assertions) => {
-  const valuesToTest: any[] = [
-    // TODO ADD VALUES
-  ];
+  const valuesToTest: any[] = [`value to test ${true}`, 'value to test', 'value to "test"', ''];
 
   for (const value of valuesToTest) {
     assert.isString(value);
@@ -21,7 +19,17 @@ test('should not set willThrow to true if value is valid', (t: Assertions) => {
 
 test('should set willThrow to true if value is invalid', (t: Assertions) => {
   const valuesToTest: any[] = [
-    // TODO ADD VALUES
+    1,
+    0x1,
+    function(): boolean {
+      return true;
+    },
+    new Date(),
+    undefined,
+    void 0,
+    null, // tslint:disable-line
+    true,
+    false,
   ];
 
   for (const value of valuesToTest) {
@@ -32,22 +40,22 @@ test('should set willThrow to true if value is invalid', (t: Assertions) => {
 });
 
 test('should be chainable', (t: Assertions) => {
-  const invalid: any = 'invalid';
+  const invalid: any = undefined;
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotString(invalid).isNotString(valid);
+  assert.isString(invalid).isString(valid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotString(valid).isNotString(invalid);
+  assert.isString(valid).isString(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotString(invalid).isNotString(invalid);
+  assert.isString(invalid).isString(invalid);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotString(valid).isNotString(valid);
-  t.true(assert.willThrow);
+  assert.isString(valid).isString(valid);
+  t.false(assert.willThrow);
 });
