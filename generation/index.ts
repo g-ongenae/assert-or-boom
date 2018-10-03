@@ -39,6 +39,8 @@ export class Writer {
 
   private async addIsAndIsNotMethods(): Promise<string> {
     const methods: string[] = [];
+    const methodsDocsIs: string[] = [];
+    const methodsDocsIsNot: string[] = [];
 
     Object.keys(is).map(async (key: string) => {
         if (key === 'default') {
@@ -51,17 +53,23 @@ export class Writer {
 
         methods.push(this.writeIs(key));
         methods.push(this.writeIsNot(key));
+        methods.push(`- is${firstLetterUpperCase(key)}`);
+        methods.push(`- isNot${firstLetterUpperCase(key)}`);
         await this.writeIsDoc(key);
         await this.writeIsNotDoc(key);
         await this.writeIsTest(key);
         await this.writeIsNotTest(key);
     });
 
+    await writeFile(`${this.baseDir}/doc/is.md`, methodsDocsIs.join('\n'));
+    await writeFile(`${this.baseDir}/doc/isNot.md`, methodsDocsIsNot.join('\n'));
+
     return methods.join('\n');
   }
 
   private async addOrMethods(): Promise<string> {
     const methods: string[] = [];
+    const methodsDocs: string[] = [];
 
     Object.keys(STATUS_CODES).map(async (n: string) => {
         if (parseInt(n) < 400) return;
@@ -72,9 +80,12 @@ export class Writer {
         }
 
         methods.push(this.writeOr(key));
+        methodsDocs.push(`or${toPascalCase(key)}`);
         await this.writeOrDoc(key);
         await this.writeOrTest(key);
     });
+
+    await writeFile(`${this.baseDir}/doc/or.md`, methodsDocs.join('\n'));
 
     return methods.join('\n');
   }
