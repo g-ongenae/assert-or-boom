@@ -15,17 +15,17 @@ test('should not set willThrow to true if value is valid', (t: Assertions) => {
 
   for (const value of valuesToTest) {
     assert.isRegExp(value);
-    t.false(assert.shouldThrow);
+    t.false(assert.willThrow);
   }
 });
 
-test('should set shouldThrow to true if value is invalid', (t: Assertions) => {
+test('should set willThrow to true if value is invalid', (t: Assertions) => {
   const valuesToTest: any[] = [
     // TODO ADD VALUES
   ];
 
   for (const value of valuesToTest) {
-    assert.shouldThrow = false; // reset
+    assert.willThrow = false; // reset
     assert.isRegExp(value);
     t.true(assert.willThrow);
   }
@@ -35,19 +35,19 @@ test('should be chainable', (t: Assertions) => {
   const invalid: any = 'invalid';
   const valid: any = 'valid';
 
-  assert.shouldThrow = false; // reset
+  assert.willThrow = false; // reset
   assert.isNotRegExp(invalid).isNotRegExp(valid);
   t.true(assert.willThrow);
 
-  assert.shouldThrow = false; // reset
+  assert.willThrow = false; // reset
   assert.isNotRegExp(valid).isNotRegExp(invalid);
   t.true(assert.willThrow);
 
-  assert.shouldThrow = false; // reset
+  assert.willThrow = false; // reset
   assert.isNotRegExp(invalid).isNotRegExp(invalid);
   t.true(assert.willThrow);
 
-  assert.shouldThrow = false; // reset
+  assert.willThrow = false; // reset
   assert.isNotRegExp(valid).isNotRegExp(valid);
   t.true(assert.willThrow);
 });

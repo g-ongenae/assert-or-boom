@@ -1413,7 +1413,7 @@ export class AssertOrBoom {
   //-----------
 
   /**
-   * Throw a Bad Request boom error if shouldThrow is true
+   * Throw a Bad Request boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1426,7 +1426,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Unauthorized boom error if shouldThrow is true
+   * Throw a Unauthorized boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1440,7 +1440,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Payment Required boom error if shouldThrow is true
+   * Throw a Payment Required boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1453,7 +1453,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Forbidden boom error if shouldThrow is true
+   * Throw a Forbidden boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1466,7 +1466,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Not Found boom error if shouldThrow is true
+   * Throw a Not Found boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1479,7 +1479,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Method Not Allowed boom error if shouldThrow is true
+   * Throw a Method Not Allowed boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1492,7 +1492,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Not Acceptable boom error if shouldThrow is true
+   * Throw a Not Acceptable boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1505,7 +1505,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Proxy Authentication Required boom error if shouldThrow is true
+   * Throw a Proxy Authentication Required boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1518,7 +1518,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Request Timeout boom error if shouldThrow is true
+   * Throw a Request Timeout boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1531,7 +1531,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Conflict boom error if shouldThrow is true
+   * Throw a Conflict boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1544,7 +1544,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Gone boom error if shouldThrow is true
+   * Throw a Gone boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1557,7 +1557,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Length Required boom error if shouldThrow is true
+   * Throw a Length Required boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1570,7 +1570,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Precondition Failed boom error if shouldThrow is true
+   * Throw a Precondition Failed boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1583,7 +1583,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Payload Too Large boom error if shouldThrow is true
+   * Throw a Payload Too Large boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1596,7 +1596,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a URI Too Long boom error if shouldThrow is true
+   * Throw a URI Too Long boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1609,7 +1609,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Unsupported Media Type boom error if shouldThrow is true
+   * Throw a Unsupported Media Type boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1622,7 +1622,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Range Not Satisfiable boom error if shouldThrow is true
+   * Throw a Range Not Satisfiable boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1635,7 +1635,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Expectation Failed boom error if shouldThrow is true
+   * Throw a Expectation Failed boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1648,7 +1648,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Im a teapot boom error if shouldThrow is true
+   * Throw a Im a teapot boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1661,7 +1661,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Misdirected Request boom error if shouldThrow is true
+   * Throw a Misdirected Request boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1670,7 +1670,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Unprocessable Entity boom error if shouldThrow is true
+   * Throw a Unprocessable Entity boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1679,7 +1679,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Locked boom error if shouldThrow is true
+   * Throw a Locked boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1692,7 +1692,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Failed Dependency boom error if shouldThrow is true
+   * Throw a Failed Dependency boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1705,7 +1705,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Unordered Collection boom error if shouldThrow is true
+   * Throw a Unordered Collection boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1714,7 +1714,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Upgrade Required boom error if shouldThrow is true
+   * Throw a Upgrade Required boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1723,7 +1723,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Precondition Required boom error if shouldThrow is true
+   * Throw a Precondition Required boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1736,7 +1736,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Too Many Requests boom error if shouldThrow is true
+   * Throw a Too Many Requests boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1749,7 +1749,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Request Header Fields Too Large boom error if shouldThrow is true
+   * Throw a Request Header Fields Too Large boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1758,7 +1758,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Unavailable For Legal Reasons boom error if shouldThrow is true
+   * Throw a Unavailable For Legal Reasons boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1771,7 +1771,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Internal Server Error boom error if shouldThrow is true
+   * Throw a Internal Server Error boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1784,7 +1784,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Not Implemented boom error if shouldThrow is true
+   * Throw a Not Implemented boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1797,7 +1797,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Bad Gateway boom error if shouldThrow is true
+   * Throw a Bad Gateway boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1810,7 +1810,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Service Unavailable boom error if shouldThrow is true
+   * Throw a Service Unavailable boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1823,7 +1823,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Gateway Timeout boom error if shouldThrow is true
+   * Throw a Gateway Timeout boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1836,7 +1836,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a HTTP Version Not Supported boom error if shouldThrow is true
+   * Throw a HTTP Version Not Supported boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1845,7 +1845,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Variant Also Negotiates boom error if shouldThrow is true
+   * Throw a Variant Also Negotiates boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1854,7 +1854,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Insufficient Storage boom error if shouldThrow is true
+   * Throw a Insufficient Storage boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1863,7 +1863,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Loop Detected boom error if shouldThrow is true
+   * Throw a Loop Detected boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1872,7 +1872,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Bandwidth Limit Exceeded boom error if shouldThrow is true
+   * Throw a Bandwidth Limit Exceeded boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1881,7 +1881,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Not Extended boom error if shouldThrow is true
+   * Throw a Not Extended boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
@@ -1890,7 +1890,7 @@ export class AssertOrBoom {
   }
 
   /**
-   * Throw a Network Authentication Required boom error if shouldThrow is true
+   * Throw a Network Authentication Required boom error if willThrow is true
    * @param message the error message
    * @param payload data to debug this error
    */
