@@ -38,18 +38,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(invalid, testRange).isNotInRange(valid, testRange);
+  assert.isInRange(invalid, testRange).isInRange(valid, testRange);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(valid, testRange).isNotInRange(invalid, testRange);
+  assert.isInRange(valid, testRange).isInRange(invalid, testRange);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(invalid, testRange).isNotInRange(invalid, testRange);
+  assert.isInRange(invalid, testRange).isInRange(invalid, testRange);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotInRange(valid, testRange).isNotInRange(valid, testRange);
+  assert.isInRange(valid, testRange).isInRange(valid, testRange);
   t.false(assert.willThrow);
 });

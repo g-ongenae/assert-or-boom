@@ -48,18 +48,18 @@ test('should be chainable', (t: Assertions) => {
   const valid: any = 'valid';
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(invalid, TestClass).isNotDirectInstanceOf(valid, TestClass);
+  assert.isDirectInstanceOf(invalid, TestClass).isDirectInstanceOf(valid, TestClass);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(valid, TestClass).isNotDirectInstanceOf(invalid, TestClass);
+  assert.isDirectInstanceOf(valid, TestClass).isDirectInstanceOf(invalid, TestClass);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(invalid, TestClass).isNotDirectInstanceOf(invalid, TestClass);
+  assert.isDirectInstanceOf(invalid, TestClass).isDirectInstanceOf(invalid, TestClass);
   t.true(assert.willThrow);
 
   assert.willThrow = false; // reset
-  assert.isNotDirectInstanceOf(valid, TestClass).isNotDirectInstanceOf(valid, TestClass);
+  assert.isDirectInstanceOf(valid, TestClass).isDirectInstanceOf(valid, TestClass);
   t.false(assert.willThrow);
 });
