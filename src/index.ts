@@ -15,9 +15,9 @@ export class AssertOrBoom {
     this.willThrow = false;
   }
 
-  /**
-   * Thrower
-   */
+  //---
+  // Thrower
+  //---
 
   /**
    * orBoom

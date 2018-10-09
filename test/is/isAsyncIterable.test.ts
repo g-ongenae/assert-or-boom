@@ -2,6 +2,9 @@ import test, {Assertions, beforeEach} from 'ava';
 
 import {AssertOrBoom} from '../../src/index';
 
+// Functions here are only for test and doesn't need typedef
+// tslint:disable: typedef
+
 let assert: AssertOrBoom;
 
 beforeEach('Instantiate an AssertOrBoom object', () => {
@@ -9,9 +12,7 @@ beforeEach('Instantiate an AssertOrBoom object', () => {
 });
 
 test('should not set willThrow to true if value is valid', (t: Assertions) => {
-  const valuesToTest: any[] = [
-    // TODO ADD VALUES
-  ];
+  const valuesToTest: any[] = [{[Symbol.asyncIterator]: () => {}}];
 
   for (const value of valuesToTest) {
     assert.isAsyncIterable(value);
@@ -21,7 +22,22 @@ test('should not set willThrow to true if value is valid', (t: Assertions) => {
 
 test('should set willThrow to true if value is invalid', (t: Assertions) => {
   const valuesToTest: any[] = [
-    // TODO ADD VALUES
+    undefined,
+    null, // tslint:disable-line
+    1,
+    'string',
+    new Array(),
+    function() {},
+    () => void 0,
+    new Promise((r) => r()),
+    () => new Promise((r) => r()),
+    function() {
+      return new Promise((r) => r());
+    },
+    async () => void 0,
+    async function() {},
+    function*(): IterableIterator<any> {},
+    async function*(): AsyncIterableIterator<any> {},
   ];
 
   for (const value of valuesToTest) {
@@ -33,7 +49,7 @@ test('should set willThrow to true if value is invalid', (t: Assertions) => {
 
 test('should be chainable', (t: Assertions) => {
   const invalid: any = 'invalid';
-  const valid: any = 'valid';
+  const valid: any = {[Symbol.asyncIterator]: () => {}};
 
   assert.willThrow = false; // reset
   assert.isAsyncIterable(invalid).isAsyncIterable(valid);

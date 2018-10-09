@@ -9,9 +9,7 @@ beforeEach('Instantiate an AssertOrBoom object', () => {
 });
 
 test('should not set willThrow to true if value is valid', (t: Assertions) => {
-  const valuesToTest: any[] = [
-    // TODO ADD VALUES
-  ];
+  const valuesToTest: any[] = ['string', [], new Array(), new Buffer('')];
 
   for (const value of valuesToTest) {
     assert.isArrayLike(value);
@@ -21,7 +19,11 @@ test('should not set willThrow to true if value is valid', (t: Assertions) => {
 
 test('should set willThrow to true if value is invalid', (t: Assertions) => {
   const valuesToTest: any[] = [
-    // TODO ADD VALUES
+    null, // tslint:disable-line
+    undefined,
+    1,
+    Symbol(),
+    new ArrayBuffer(1),
   ];
 
   for (const value of valuesToTest) {
@@ -32,8 +34,8 @@ test('should set willThrow to true if value is invalid', (t: Assertions) => {
 });
 
 test('should be chainable', (t: Assertions) => {
-  const invalid: any = 'invalid';
-  const valid: any = 'valid';
+  const invalid: any = undefined;
+  const valid: any = new Array();
 
   assert.willThrow = false; // reset
   assert.isArrayLike(invalid).isArrayLike(valid);
